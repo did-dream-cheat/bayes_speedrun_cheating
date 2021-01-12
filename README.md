@@ -12,5 +12,4 @@ Currently, I consider this report to be mostly but not entirely finished. I have
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hjhornbeck/bayes_speedrun_cheating/blob/main/did_dream_cheat.ipynb)
 
-
 *hjhornbeck*
