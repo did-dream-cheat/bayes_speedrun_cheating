@@ -16,7 +16,7 @@ TARGET=converted/"$BASE".pdf
 
 if [ ! -f "$TARGET" -o "$SOURCE" -nt "$TARGET" ] ; then
 
-	$NBPUB -f latex_ipypublish_main "$SOURCE" && \
+	$NBPUB -f latex_ipypublish_all.exec "$SOURCE" && \
 	(	cd converted
 		pdflatex "$BASE".tex && (
 			bibtex "$BASE"
