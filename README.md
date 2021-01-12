@@ -10,6 +10,7 @@ From the report's current Executive Summary:
 
 Currently, I consider this report to be mostly but not entirely finished. I have made no attempt at spell-checking it, and it probably needs a grammar pass. The math appears correct, but could use a double-check. Overall, though, I think it is in good enough shape to ask for feedback on it. A PDF version of it will be coming shortly, but in the meantime you can run the notebook yourself on Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/hjhornbeck/bayes_speedrun_cheating/blob/main/did_dream_cheat.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hjhornbeck/bayes_speedrun_cheating/blob/main/did_dream_cheat.ipynb)
+
 
 *hjhornbeck*
