@@ -1,6 +1,6 @@
 title: "Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process."
 author: "hjhornbeck"
-repository
+repository:
   url: https://github.com/hjhornbeck/bayes_speedrun_cheating/
 html:
   use_repository_button: true
