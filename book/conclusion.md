@@ -2,6 +2,7 @@
 
 I will refrain from stating conclusively that Dream boosted his Blaze rod drop and Ender pearl barter rate. To explain why, it is worth discussing stopping rules.
 
+(sec:stopping_rules)=
 ## Stopping Rules
 
 Both the MST and PE reports invoke stopping rules, though in a way that is not congruent with how they are used within the scientific community.

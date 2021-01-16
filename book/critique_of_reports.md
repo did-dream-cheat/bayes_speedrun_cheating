@@ -14,6 +14,7 @@ jupyter:
 
 # A Critique of the Reports
 
+(sec:mst_report)=
 ## Minecraft Speedrunning Team
 
 The [MST report](https://mcspeedrun.com/dream.pdf) is quite good. The authors go into extensive detail on how Blaze rod drops and Pigmen barters for Ender pearls work, to the point of analyzing how random numbers are generated within Minecraft. They compare Dream's performance to other runners, which is vital to help rule out flaws in your analysis: if the analysis shows *all* of the top players are cheating, then either cheating is rampant or something is wrong with your analysis. The report goes into quite a bit of detail on the methods used, and shares code to help with reproducibility. I believe it is a good attempt to "present \[an\] unbiased, rigorous statistical analysis of the data" (pg. 4).
@@ -52,6 +53,7 @@ Even experts can misinterpret it.
 
 > In a recent survey of medical residents published in JAMA, 88% expressed fair to complete confidence in interpreting P values, yet only 62% of these could answer an elementary P-value interpretation question correctly. However, it is not just those statistics that testify to the difficulty in interpreting P values. In an exquisite irony, none of the answers offered for the P-value question was correct $\dots$ {cite}`GOODMAN2008135`
 
+(sec:p_values_exaggerate)=
 ### P-values Exaggerate the Evidence
  
 Multiple studies have looked into the predictive power of p-values by simulating experiments.{cite}`hubbard_why_2008,colquhoun2014investigation,halsey_fickle_2015` These should be taken with a grain of salt, as many of them argue p-values exaggerate the evidence relative to Bayesian methods. If you believe hypotheses can only be true or false, and cannot be assigned probability values, then you believe Bayesian methods are invalid and thus cannot be used as a reference. Not all of these simulation studies make the same mistake, though.
@@ -62,12 +64,14 @@ The evidence is strong enough that some researchers have proposed lowering the d
 
 I have other complaints about the MST report, but there's significant overlap between them and what's in the Photoexitation report.
 
+(sec:pe_report)=
 ## Photoexcitation
 
 The PE report offers a few good critiques. It argues that since Minecraft speedrunners almost always stop after they've earned $k$ items, instead of stopping after $n$ attempts to earn those items, the resulting $k$ and $n$ do not follow the binomial distribution. The MST report does not consider this argument in the context of items picked up, though it does consider it in the context of when a speedrunner stops playing.
 
 The PE report's decision to use Bayesian statistics was correct, as in my opinion it copes better with small sample sizes than frequentist methods such as the p-value. It also used simulations to examine the relevant mechanics of Minecraft, a wise choice that makes it easier to test different possible outcomes in a controlled environment.
 
+(sec:nbinom_overuse)=
 ### Overuse of the Negative Binomial
 
 ```{margin} Minecraft Versions
@@ -84,6 +88,7 @@ Another approach is to multitask. For their 15 minute 51 second speedrun, Dowsky
 
 The simulation code present on page 17 of the PE report only models bartering with a single Piglin that the player can monitor closely. That would be perfectly fine if they could show Dream used that technique exclusively when bartering with Piglins, but the report makes no such effort.
 
+(sec:minecraft_misunderstandings)=
 ### Misunderstanding Minecraft
 
 The PE report demonstrates other misunderstandings about how Minecraft is played.
@@ -94,6 +99,7 @@ I am a Minecraft player. While I haven't tracked my Ender pearl barter stats, I 
 
 This lack of knowledge is understandable, given the author does not appear to be a Minecraft player. Nonetheless, the more you know about a topic, the less likely your analysis of that topic will rest on false premises.
 
+(sec:no_real_world)=
 ### Lack of a Comparison to Real World Data
 
 This premise leads the PE report to forgo comparisons to other speedrunners.
@@ -111,6 +117,7 @@ Setting aside the argument that this is the reverse of reality, it is notable th
 
 Conversely, even if other speedrunners are an inappropriate reference class, running their performance through the report's simulation can ensure that it is working properly. This is one reason why scientific studies usually have control groups, as they help validate the methodology. The author of this report had the data to do this, thanks to the MST report, and passing it through their simulation was as easy as editing two lines of code, so there was no lack of means or opportunity.
 
+(sec:missing_context)=
 ### Missing Context
 
 > In this document, I don’t have time to discuss the long-term debate between these different statistical
@@ -133,6 +140,7 @@ This has an important side-effect: the flip-side of p-values exaggerating the ev
 
 **Bayesian statistics is intrinsically more likely to conclude Dream played fairly, relative to frequentist statistics, given the same evidence.** Whether this is a problem or not depends on how sound you think the premises are behind each system. It's not unfair to invoke p-values if the "fairer" analysis is Bayesian and you reject that system outright. By the same token, a Bayesian analysis of Dream's performance is not biased towards him relative to one that uses p-values, provided you think p-values should not be applied to this problem.
 
+(sec:biased_priors)=
 ### Biased Priors
 
 You can think of a prior as a likelihood function supplied with zero evidence. It is convenient to define your likelihood function as how your credence changes given one atom of data, because then you can chain together arbitrary numbers of likelihood functions to handle arbitrary amounts of evidence. That chain has to be anchored somewhere, though, so you also need to define the likelihood of a specific choice of parameters absent any evidence. The opposite end of that chain is the posterior, or your credence after accounting for all the evidence.
@@ -145,6 +153,7 @@ Some priors apply to all relevant hypotheses. A cheater is much less likely to s
 
 The prior used in the PE report gives as much credence to Dream earning 20 pearls after 423 barter as it does him earning 100. This is going to exaggerate the likelihood that Dream cheated in the resulting analysis.
 
+(sec:mst_response)=
 ## Response to the Photoexcitation Report
 
 The Minecraft Speedrunning Team has [responded to the PE report](https://mcspeedrun.com/dream/rebuttal.pdf). The best critique it makes mirrors one of mine.

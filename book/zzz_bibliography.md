@@ -15,5 +15,5 @@ jupyter:
 # Bibliography
 
 ```{bibliography} did_dream_cheat.bib
-:style: unsrt
+:style: alpha
 ```
