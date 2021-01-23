@@ -20,4 +20,4 @@ In {doc}`critique_of_reports`, I point out a number of issues with those two ana
 
 Overall, I find the probability of Dream cheating to be much lower than the Minecraft Speedruning Team's report, at least five orders of magnitude lower in fact. I also find his performance to be more consistent with simulated players who modified their version of Minecraft than with simulated players who did not or with comparable real-world Minecraft speedrunners. I do not make a definitive conclusion, though, in deference to the Minecraft speedrunning community.
 
-I also point out an apparent oversight in the speedrunning community which could allow for different styles of cheating that could easily be missed. I also outline how to detect these styles.
+In {ref}`sec:cheating_techniques` I also point out an apparent oversight in the speedrunning community which could allow for different styles of cheating that could easily be missed. I outline how to detect these styles.

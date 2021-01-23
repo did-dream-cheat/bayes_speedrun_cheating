@@ -19,10 +19,17 @@ jupyter:
 
 The [MST report](https://mcspeedrun.com/dream.pdf) is quite good. The authors go into extensive detail on how Blaze rod drops and Pigmen barters for Ender pearls work, to the point of analyzing how random numbers are generated within Minecraft. They compare Dream's performance to other runners, which is vital to help rule out flaws in your analysis: if the analysis shows *all* of the top players are cheating, then either cheating is rampant or something is wrong with your analysis. The report goes into quite a bit of detail on the methods used, and shares code to help with reproducibility. I believe it is a good attempt to "present \[an\] unbiased, rigorous statistical analysis of the data" (pg. 4).
 
-The biggest flaw with the report is the reliance on p-values to generate its conclusions. I have summarized [many critiques of that statistic elsewhere](https://freethoughtblogs.com/reprobate/2015/12/17/index-post-p-values/), but two points are worth covering in detail here.
+(sec:inadequate_comparisons}=
+### Inadequate Comparisons to Other Speedrunners
+
+The MST report links to raw data for five top-tier speedrunners, only one of which is Dream. (pg. 24). Rather than carry out their analysis on all five speed runners, though, only Dream's statistics are considered in depth. Figures 1 and 2, on pages 5 and 6, are the only attempt to compare Dream's performance to that of other top speed runners, and even then only raw data is displayed rather than test statistics. The authors of this report had the means and ability to calculate their test statistic for all five runners, and yet they either did not or did not show it. This leaves them wide open to charges of bias.
+
+Running other speedrunner's performance through their metrics are also a key way to ensure they are working properly. If other speedrunners show equally implausible metrics, then we have grounds to reject the metric entirely. This is one reason why scientific studies usually have control groups.
 
 (sec:p_value_misunderstood)=
 ### P-values are Not What You Think
+
+The biggest flaw with the report is the reliance on p-values to generate its conclusions. I have summarized [many critiques of that statistic elsewhere](https://freethoughtblogs.com/reprobate/2015/12/17/index-post-p-values/), but two points are worth covering in detail here.
 
 This is the definition of the p-value:{cite}`doi:10.7326/0003-4819-130-12-199906150-00008`
 
@@ -115,7 +122,7 @@ At the core of statistics is the idea of [a reference class](https://en.wikipedi
 
 Setting aside the argument that this is the reverse of reality, it is notable that the report makes no attempt to compare Dream's performance to any real-world reference class. If a perfect Blaze rod and Ender pearl bartering session is indeed a common occurrence, it should be easy to demonstrate that by pointing to a few examples of ordinary Minecraft players achieving those feats. Even if they are rarely recorded, discussion of such events must appear in comment sections or Discord channel messages, and we would expect it to be common knowledge among players of Minecraft.
 
-Conversely, even if other speedrunners are an inappropriate reference class, running their performance through the report's simulation can ensure that it is working properly. This is one reason why scientific studies usually have control groups, as they help validate the methodology. The author of this report had the data to do this, thanks to the MST report, and passing it through their simulation was as easy as editing two lines of code, so there was no lack of means or opportunity.
+Conversely, even if other speedrunners are an inappropriate reference class, the comparison would help validate their methodology. The author of this report had the data to do this, thanks to the MST report, and passing it through their simulation was as easy as editing two lines of code, so there was no lack of means or opportunity.
 
 (sec:missing_context)=
 ### Missing Context
