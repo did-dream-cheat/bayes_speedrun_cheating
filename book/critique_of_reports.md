@@ -24,7 +24,7 @@ The [MST report](https://mcspeedrun.com/dream.pdf) is quite good. The authors go
 
 The MST report links to raw data for five top-tier speedrunners, only one of which is Dream. (pg. 24). Rather than carry out their analysis on all five speed runners, though, only Dream's statistics are considered in depth. Figures 1 and 2, on pages 5 and 6, are the only attempt to compare Dream's performance to that of other top speed runners, and even then only raw data is displayed rather than test statistics. The authors of this report had the means and ability to calculate their test statistic for all five runners, and yet they either did not or did not show it. This leaves them wide open to charges of bias.
 
-Running other speedrunner's performance through their metrics are also a key way to ensure they are working properly. If other speedrunners show equally implausible metrics, then we have grounds to reject the metric entirely. This is one reason why scientific studies usually have control groups.
+Running other speedrunner's performance through their metrics is critical to ensure they are working properly. If other speedrunners show equally implausible metrics, then we have grounds to reject the metric entirely. This is one reason why scientific studies usually have control groups, even though it requires twice the effort of not running a control.
 
 (sec:p_value_misunderstood)=
 ### P-values are Not What You Think
