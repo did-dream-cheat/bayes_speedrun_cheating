@@ -3,7 +3,7 @@
 - file: critique_of_reports
 - file: methodology
 - file: sim_results
-  # - file: data_results
+- file: data_results
 - file: conclusion
 - file: future_work
 - file: zzz_bibliography
