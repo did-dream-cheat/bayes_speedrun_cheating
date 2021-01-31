@@ -1,0 +1,1299 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methodology &#8212; Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simulation Results" href="sim_results.html" />
+    <link rel="prev" title="A Critique of the Reports" href="critique_of_reports.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="executive_summary.html">
+   Executive Summary
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="critique_of_reports.html">
+   A Critique of the Reports
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Methodology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sim_results.html">
+   Simulation Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_results.html">
+   Real-World Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="future_work.html">
+   Future Work
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zzz_bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/methodology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hjhornbeck/bayes_speedrun_cheating/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hjhornbeck/bayes_speedrun_cheating/master?urlpath=tree/methodology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-binomial-and-negative-binomial-distributions">
+   The Binomial and Negative Binomial Distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjugate-priors">
+   Conjugate Priors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-posterior-distribution-for-the-binomial-and-negative-binomial">
+   The Posterior Distribution for the Binomial and Negative Binomial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-fairness">
+   Defining Fairness
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-cheating">
+   Defining Cheating
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-all-together">
+   Putting It All Together
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="methodology">
+<h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h1>
+<p>Given the flaws in both reports’ methodology, it is fair to ask what a better one looks like.</p>
+<div class="section" id="the-binomial-and-negative-binomial-distributions">
+<span id="sec-binom-nbinom-demo"></span><h2>The Binomial and Negative Binomial Distributions<a class="headerlink" href="#the-binomial-and-negative-binomial-distributions" title="Permalink to this headline">¶</a></h2>
+<p>As the MST report shows, when a Blaze is killed it almost always drops either zero or one Blaze rod. Both outcomes are equally likely. These drops behave like a Bernoulli process:</p>
+<ol class="simple">
+<li><p>Some algorithm or thing will “emit” one of two possible outputs, canonically labelled 0 and 1.</p></li>
+<li><p>The choice of which value to emit cannot be predicted beforehand.</p></li>
+<li><p>The current output does not depend on what’s been generated before or will be generated later.</p></li>
+<li><p>As the number of values emitted becomes arbitrarily large, the ratio of zeros to ones comes arbitrarily close to a fixed value. That value does not change if we discard an arbitrary number of those outputs.</p></li>
+</ol>
+<p>We can easily simulate that behaviour. Suppose I decided to collect Blaze rods for the first time, and set out to kill six Blazes. Since you can learn little from a single experiment, I do another four Blaze killing sprees.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell to install all dependencies locally</span>
+<span class="o">!</span>pip -q install --user mpmath myst_nb numpy pandas matplotlib scipy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span><span class="n">factorial</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">mp</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span><span class="p">,</span><span class="n">binom</span><span class="p">,</span><span class="n">nbinom</span>
+
+<span class="n">dpi</span>         <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># change this to increase/decrease the resolution charts are made at</span>
+<span class="n">book_output</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># changing this to False will make it easier to view plots in a Jupyter notebook</span>
+
+<span class="k">def</span> <span class="nf">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="n">name</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A helper to control how we&#39;re displaying figures.&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">book_output</span>
+    
+    <span class="k">if</span> <span class="n">book_output</span><span class="p">:</span>
+        <span class="n">glue</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fixing the seed allows for perfect replication</span>
+<span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>     <span class="c1"># number of Blazes killed</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># number of runs to kill n Blazes</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span> <span class="p">)</span>
+    <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Blaze rod] &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[ nothing ] &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;   total = </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Blaze rod] [ nothing ] [ nothing ] [Blaze rod] [ nothing ] [ nothing ]    total = 2/6
+[Blaze rod] [Blaze rod] [Blaze rod] [Blaze rod] [ nothing ] [ nothing ]    total = 4/6
+[Blaze rod] [ nothing ] [ nothing ] [ nothing ] [ nothing ] [ nothing ]    total = 1/6
+[Blaze rod] [ nothing ] [Blaze rod] [ nothing ] [Blaze rod] [ nothing ]    total = 3/6
+[ nothing ] [ nothing ] [ nothing ] [ nothing ] [Blaze rod] [Blaze rod]    total = 2/6
+</pre></div>
+</div>
+</div>
+</div>
+<p>I might calculate my odds of getting exactly three rods by multiplying the odds of getting a rod (50%) by itself three times, then multiply that by the odds of not getting a rod (50%) three times. If I carry on that logic for all other possible outcomes and sum them up, however, I find the total probability of all outcomes is <span class="math notranslate nohighlight">\(7 \cdot (\frac 1 2)^6 = \frac{7}{64}.\)</span> Those probabilities should sum to one, if I’ve defined a probability distribution.</p>
+<p>The error in my logic is that I’ve failed to account for multiple identical outcomes. Two of the five runs shown above have two total successes, but both earn those successes in a different way. Conversely, there’s only a single way for one of my runs to earn a Blaze rod from every Blaze. To correctly calculate the probability of <span class="math notranslate nohighlight">\(k\)</span> drops when killing <span class="math notranslate nohighlight">\(n\)</span> Blazes, I need to also calculate the number of ways I could have earned those drops. As luck would have it, the math to do that is pretty easy.</p>
+<div class="math notranslate nohighlight">
+\[
+{n \choose k} = \frac{n!}{k!(n-k)!},
+\]</div>
+<p>where “!” is the factorial function, <span class="math notranslate nohighlight">\(n! = n \cdot (n-1) \cdot (n-2) \cdot \dots \cdot 3 \cdot 2\)</span>. When I combine those two components, I get the Binomial distribution.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-binomial">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqn-binomial" title="Permalink to this equation">¶</a></span>\[
+\text{Binom}(n, k, p) = {n \choose k} p^k (1-p)^{n-k} = \frac{n!}{k!(n-k)!} p^k (1-p)^{n-k},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of times the Bernoulli process is sampled, <span class="math notranslate nohighlight">\(k\)</span> is the number of 1’s emitted, and <span class="math notranslate nohighlight">\(p\)</span> is the probability of that Bernoulli process emitting a 1. For my toy example above, we find the odds for <span class="math notranslate nohighlight">\(n = 6\)</span>, <span class="math notranslate nohighlight">\(k = 3\)</span>, and <span class="math notranslate nohighlight">\(p = \frac 1 2\)</span> are not <span class="math notranslate nohighlight">\(\frac 7 {64}\)</span> but instead <span class="math notranslate nohighlight">\(\frac 5 {16}\)</span>. If I  carry that on for all seven values of <span class="math notranslate nohighlight">\(k\)</span> and sum the probabilities, they do indeed add up to one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binomial</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span> <span class="p">):</span>
+    <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;The sum of probabilities of all possible k is </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="p">)</span>
+<span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;, which means Binom(n,k,p) defines a probability distribution over k.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The sum of probabilities of all possible k is 1, which means Binom(n,k,p) defines a probability distribution over k.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Suppose I make one tweak to the above scenario, though. This time around I want to earn three Blaze rods, to allow me to craft the six Ender pearls I have in my inventory into six Eyes of Ender.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># number of Blaze rods needed</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># number of runs to earn k Blaze rods</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+    <span class="k">while</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">results</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">results</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Blaze rod] &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[ nothing ] &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[:</span><span class="n">n</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;   total = </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Blaze rod] [Blaze rod] [Blaze rod]    total = 3/3
+[Blaze rod] [ nothing ] [ nothing ] [Blaze rod] [ nothing ] [Blaze rod]    total = 3/6
+[ nothing ] [ nothing ] [ nothing ] [ nothing ] [ nothing ] [Blaze rod] [Blaze rod] [Blaze rod]    total = 3/8
+[ nothing ] [Blaze rod] [Blaze rod] [Blaze rod]    total = 3/4
+[Blaze rod] [ nothing ] [ nothing ] [ nothing ] [Blaze rod] [ nothing ] [Blaze rod]    total = 3/7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before, I fixed the number of Blazes I killed, <span class="math notranslate nohighlight">\(n\)</span>, as well as the odds of earning a Blaze rod, <span class="math notranslate nohighlight">\(p\)</span>, so the only thing that could vary was the number of rods <span class="math notranslate nohighlight">\(k\)</span>. Now with <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(p\)</span> fixed, <span class="math notranslate nohighlight">\(n\)</span> must be the one to vary. That part is obvious, but look carefully at the last Blaze I kill before quitting. Each and every time, it drops a Blaze rod. In hindsight that makes perfect sense: I’ve got no reason to continue killing Blazes after I earn my third rod, after all. In the process, though, I’ve placed some constraints on the number of ways to earn three Blaze rods. The math we invoked earlier to calculate the total number of combinations no longer works.</p>
+<p>There is a way to fix it. Rather than consider the full <span class="math notranslate nohighlight">\(n\)</span> kills, let’s stop at the <span class="math notranslate nohighlight">\(n-1\)</span>-th kill. At this point, I have <span class="math notranslate nohighlight">\(k-1\)</span> Blaze rods. Since this is Bernoulli process, I have no idea that my next Blaze will net me a rod and I can exit this thought experiment. The <span class="math notranslate nohighlight">\(n-1\)</span>-th Blaze may or may not have dropped a rod, as of this point all possible ways to earn <span class="math notranslate nohighlight">\(k-1\)</span> rods via <span class="math notranslate nohighlight">\(n-1\)</span> Blazes are available. There’s only one way to earn that <span class="math notranslate nohighlight">\(k\)</span>-th rod on my <span class="math notranslate nohighlight">\(n\)</span>-th, so it doesn’t contribute any new combinations and the total number is <span class="math notranslate nohighlight">\({n-1 \choose k-1}\)</span> instead of <span class="math notranslate nohighlight">\({n \choose k}\)</span>.</p>
+<p>The probability of getting those rods still works, though. The odds of me getting <span class="math notranslate nohighlight">\(k\)</span> rods over <span class="math notranslate nohighlight">\(n\)</span> trials with success probability <span class="math notranslate nohighlight">\(p\)</span> does not change whether I stop based on <span class="math notranslate nohighlight">\(n\)</span> or <span class="math notranslate nohighlight">\(k\)</span>. Combining this all together, we find the equation that describes the odds of <span class="math notranslate nohighlight">\(n\)</span> trials when trying to earn <span class="math notranslate nohighlight">\(k\)</span> successes with probability of success <span class="math notranslate nohighlight">\(p\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-eqn-negbinom">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-negbinom" title="Permalink to this equation">¶</a></span>\[
+{n-1 \choose k-1} p^k (1-p)^{n-k} = p \cdot \text{Binom}(n-1,k-1,p) = \text{NegBinom}(n,k,p)
+\]</div>
+<p>This is known as <a class="reference external" href="https://mathworld.wolfram.com/NegativeBinomialDistribution.html">the Negative Binomial distribution</a>. While it’s closely related to the Binomial distribution, it is not identical.</p>
+</div>
+<div class="section" id="conjugate-priors">
+<span id="sec-conjugate-priors"></span><h2>Conjugate Priors<a class="headerlink" href="#conjugate-priors" title="Permalink to this headline">¶</a></h2>
+<p>Remember when I mentioned in <a class="reference internal" href="critique_of_reports.html#sec-missing-context"><span class="std std-ref">Missing Context</span></a> that calculating the integrals necessary for Bayesian statistics “is impractical for all but the easiest problems?” Here’s one exception: let’s switch out the Bernoulli process for another that emits real numbers that have a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian distribution</a>. We know the variance of this process but not the mean value. How could we estimate it?</p>
+<p>An obvious approach is to leverage the central limit theorem: grab a bunch of numbers from this process, calculate their average, and use that to be the best estimate. That doesn’t give us a degree of credence for that estimate, though, we’d prefer some sort of distribution to represent our credence for where the mean is. We can get that by generating a Gaussian distribution representing our credence for where the mean lies. It would be handy to be able to take in multiple values at once, and we can again use the central limit theorem to construct a Gaussian distribution representing the likelihood. We still need some sort of prior, but since we know the variance we can just use a diffuse Gaussian distribution based loosely on that and rely on the data to tug the posterior in the right direction.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Gaussian Processes</p>
+<p>I’m deliberately not calling this a Gaussian process, because that’s a bit like calling a 1908 Model-T Ford a “car;” while technically correct, equivocating the two fails to capture the <a class="reference external" href="https://distill.pub/2019/visual-exploration-gaussian-processes/">generality</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Kriging#Applications">full potential</a> of the latter.</p>
+</div>
+<p>Noting that both the prior and posterior are Gaussian distributions. You might have figured out this allows us to iteratively update our posterior: as more data comes in, we turn it into a Gaussian prior, apply the Gaussian likelihood function, and get back another Gaussian posterior. What you may not have figured out is that the math to update our posterior is trivially easy:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_\text{posterior}^2 = \left( \frac 1{\sigma_\text{prior}^2} + \frac n {\sigma_n} \right)^{-1}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mu_\text{posterior} = \sigma_\text{posterior}^2 \left( \frac{\mu_\text{prior}}{\sigma_\text{prior}^2} + n \frac{\mu_n}{\sigma_n^2}\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_n\)</span> and <span class="math notranslate nohighlight">\(\sigma_n\)</span> are the mean and standard devation of <span class="math notranslate nohighlight">\(\{x_1, x_2, \dots, x_n\}\)</span> new observations.</p>
+<p>When the prior and posterior of a model follow the same distribution, that prior is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate prior</a>. These are oases of easy math in what is otherwise a Bayesian wasteland of tangled computations. If we can find a conjugate applicable to the Binomial and Negative Binomial, our analysis will be immensely simpler. The Gaussian example I used above is tempting, as the Gaussian distribution is often used as an approximation of the Binomial.</p>
+<p>But there’s no need to approximate here: the Binomial distribution has a conjugate prior, <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">the Beta distribution</a>. Even better, the appropriate updating rule doesn’t require a fixed <span class="math notranslate nohighlight">\(k\)</span> or <span class="math notranslate nohighlight">\(n\)</span>. This saves us from having to apply corrections for speed-runners that choose different Blaze rod quotas or happen to pick up Ender pearls outside of bartering. We will need to do some math to convert it to handle the Negative Binomial scenario, though.</p>
+<p>The updating rule for the Beta conjugate prior is</p>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-update">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eqn-beta-update" title="Permalink to this equation">¶</a></span>\[
+\text{Binom}(n,k,p) \cdot \text{Beta}(\alpha_\text{prior}, \beta_\text{prior}, p) \to \text{Beta}(\alpha_\text{prior} + k, \beta_\text{prior} + n - k, p) 
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-beta">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-beta" title="Permalink to this equation">¶</a></span>\[
+\text{Beta}(\alpha, \beta, p) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} p^{\alpha - 1} (1-p)^{\beta - 1} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\Gamma(x)\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_function">Gamma function</a>. It is an extrapolation of factorials, such that <span class="math notranslate nohighlight">\(n! = \Gamma(n+1)\)</span> for any positive integer <span class="math notranslate nohighlight">\(n\)</span>. Unlike factorials, though, the Gamma function can be applied to fractions, real numbers, and even complex numbers.</p>
+<p>Now we need to decide which Beta distribution to use as a prior. <a class="reference internal" href="#fig-common-priors"><span class="std std-ref">Two options are commonly used</span></a>, the Bayes/Laplace prior (<span class="math notranslate nohighlight">\(\alpha = \beta = 1\)</span>) and the Jeffreys prior (<span class="math notranslate nohighlight">\(\alpha = \beta = \frac 1 2\)</span>). The PE report uses the Bayes/Laplace prior, and as per my critique in <a class="reference internal" href="critique_of_reports.html#sec-biased-priors"><span class="std std-ref">Biased Priors</span></a> I do not think it is appropriate here. The same reasoning applies to the Jeffreys prior; it groups the credence around <span class="math notranslate nohighlight">\(p = 0\)</span> and <span class="math notranslate nohighlight">\(p = 1\)</span>, both of which are unlikely possibilities in the context of Blaze rod drops and Ender pearl barters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bayes/Laplace Prior&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Jeffrey&#39;s Prior&quot;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Likelihood&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s2">&quot;fig:common_priors&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-common-priors">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_11_0.png" src="_images/methodology_11_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The two most commonly used priors for the Beta distribution.</span><a class="headerlink" href="#fig-common-priors" title="Permalink to this image">¶</a></p>
+</div>
+<p>The prior I recommend instead places the bulk of the credence around the expected drop rate for each item, and spreads the remainder out according to a “strength” factor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prior</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">strength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate an appropriate prior to be used during inference with a Beta conjugate prior.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r = The expected rate of item drops, assuming no modification of the game. Must be between 0 and 1.</span>
+<span class="sd">    strength = A value to strengthen our credence around r. Higher values favour the hypothesis that</span>
+<span class="sd">       someone played fairly, while lower values favour someone who cheated. Must be a positive real.</span>
+<span class="sd">       </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A tuple (alpha, beta) representing the Beta prior.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># ensure the proper values are given</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">strength</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">strength</span><span class="p">,</span> <span class="n">strength</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">strength</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="p">,</span> <span class="n">strength</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+
+<span class="n">strengths</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;strength=</span><span class="si">{</span><span class="n">strength</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">strength</span> <span class="ow">in</span> <span class="n">strengths</span><span class="p">]</span>
+<span class="n">r_blaze</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">r_pearl</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">423</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">strengths</span><span class="p">):</span>
+
+    <span class="n">blaze_prior</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_blaze</span><span class="p">,</span> <span class="n">strength</span> <span class="p">)]</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">blaze_prior</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="n">pearl_prior</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_pearl</span><span class="p">,</span> <span class="n">strength</span> <span class="p">)]</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="o">*</span><span class="n">pearl_prior</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;drop rate, rods&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="n">r_blaze</span> <span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nb">float</span><span class="p">(</span><span class="n">r_pearl</span><span class="p">),</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;barter rate, pearls&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="n">r_pearl</span> <span class="p">)</span>
+
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s2">&quot;fig:sub_priors&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-sub-priors">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_14_0.png" src="_images/methodology_14_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Comparing my subjective priors for various strength factors. The vertical line is the expected or average value of the Bernoulli process.</span><a class="headerlink" href="#fig-sub-priors" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-sub-priors"><span class="std std-ref">These priors</span></a> are all quite subjective, and ask you to make a judgment call on the appropriate strength value to use. I think 4 is a good compromise, but I’ll keep <span class="math notranslate nohighlight">\(\alpha_\text{prior}\)</span> and <span class="math notranslate nohighlight">\(\beta_\text{prior}\)</span> as free parameters. If you disagree with my subjective Beta prior, you’ll be free to substitute in any other. To double-check the effect of the strength parameter, I’ll also do a sensitivity analysis with the real-world data to get a better handle on the prior’s influence.</p>
+<p>The apparent skew with the Ender pearl prior is because we are fixing the mean instead of the maximal likelihood. As we’ll be integrating across this prior, fixing the latter would bias us to assume the barter rate is higher.</p>
+</div>
+<div class="section" id="the-posterior-distribution-for-the-binomial-and-negative-binomial">
+<span id="sec-posterior-binom-nbinom"></span><h2>The Posterior Distribution for the Binomial and Negative Binomial<a class="headerlink" href="#the-posterior-distribution-for-the-binomial-and-negative-binomial" title="Permalink to this headline">¶</a></h2>
+<p>We can now construct a posterior distribution for both the Binomial and Negative Binomial cases.</p>
+<p>The updating rule of Equation <a class="reference internal" href="#equation-eqn-beta-update">(3)</a> only works for one run of <span class="math notranslate nohighlight">\(k\)</span> successes via <span class="math notranslate nohighlight">\(n\)</span> trials, distributed according to the Binomial, but it is simple enough to extend for multiple runs. Define <span class="math notranslate nohighlight">\(\vec n = \{n_1, n_2, \dots, n_c\}\)</span> as a vector that contains the trial counts for all <span class="math notranslate nohighlight">\(c\)</span> runs, and <span class="math notranslate nohighlight">\(\vec k = \{k_1, k_2, \dots, k_c\}\)</span> as a vector for each success count. The resulting Beta posterior is</p>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-binom-mess">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-beta-binom-mess" title="Permalink to this equation">¶</a></span>\[
+\text{Beta}( \alpha_\text{prior} + \sum_{j=1}^c k_j, \beta_\text{prior} + \sum_{j=1}^c (n_j - k_j), p ) = \frac{\Gamma\left(\alpha_\text{prior} + (\sum_{j=1}^c k_j) + \beta_\text{prior} + (\sum_{j=1}^c (n_j - k_j))\right)}{\Gamma(\alpha_\text{prior} + \sum_{j=1}^c k_j)\Gamma(\beta_\text{prior} + \sum_{j=1}^c (n_j - k_j))} p^{\alpha_\text{prior} - 1 + \sum_{j=1}^c k_j} (1-p)^{\beta_\text{prior} - 1 + \sum_{j=1}^c (n_j - k_j)} 
+\]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-beta-binom-mess">(5)</a> is a bit ugly to look at. One way to clean it up is to use different notation. The <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Taxicab_norm_or_Manhattan_norm">Taxicab norm</a> is defined as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b2ec974f-fa1b-426a-90c7-78553bdec568">
+<span class="eqno">(6)<a class="headerlink" href="#equation-b2ec974f-fa1b-426a-90c7-78553bdec568" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\|\vec n\|_1 = \sum_{j=1}^c |n_j|
+\end{equation}\]</div>
+<p>Since no value in <span class="math notranslate nohighlight">\(\vec n\)</span> or <span class="math notranslate nohighlight">\(\vec k\)</span> is negative, taking the absolute value has no effect. Note as well that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5036f8d5-ddbf-4aae-bea9-c7fa6a2bc1b5">
+<span class="eqno">(7)<a class="headerlink" href="#equation-5036f8d5-ddbf-4aae-bea9-c7fa6a2bc1b5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\sum_{j=1}^c (n_j - k_j) = \left(\sum_{j=1}^c n_j\right) - \left(\sum_{j=1}^c k_j\right) = \|\vec n\|_1 - \|\vec k\|_1,
+\end{equation}\]</div>
+<p>which, along with <span class="math notranslate nohighlight">\(\|\vec k\|_1 + \|\vec n\|_1 - \|\vec k\|_1 = \|\vec n\|_1\)</span>, allows us to rewrite Equation <a class="reference internal" href="#equation-eqn-beta-binom-mess">(5)</a> as</p>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-binom-post">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-beta-binom-post" title="Permalink to this equation">¶</a></span>\[
+\text{Beta}( \alpha_\text{prior} + \|\vec k\|_1, \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1, p ) = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1))} p^{\alpha_\text{prior} + \|\vec k\|_1 - 1} (1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1)} 
+\]</div>
+<p>There’s no need to normalize Equation <a class="reference internal" href="#equation-eqn-beta-binom-post">(8)</a> to make it a probability distribution over <span class="math notranslate nohighlight">\(p\)</span>, as</p>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-integral">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eqn-beta-integral" title="Permalink to this equation">¶</a></span>\[
+\int_{p=0}^1 \text{Beta}(\alpha, \beta, p) = 1
+\]</div>
+<p>Or, in English, it was already normalized over <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>That handles the case when <span class="math notranslate nohighlight">\(\vec k\)</span> and <span class="math notranslate nohighlight">\(\vec n\)</span> are taken from a Binomial distribution. What about the Negative Binomial case? Equation <a class="reference internal" href="#equation-eqn-negbinom">(2)</a> shows the Negative Binomial is simply the Binomial times the probability of success. In theory, we could treat it the same as the Binomial case and apply some sort of correction to align it with the Negative Binomial. We have to be careful, though, as that equation also shows the Negative Binomial isn’t a probability distribution with respect to <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># integrates to one with respect to p implies it does so regardless of what k and n are.</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># mp.quad() uses quadrature to numerically integrate. No math necessary on our side!</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">*</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;nbinom_integral&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;The integral of all possible p, for n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> and k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">, is </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;, which means p*Binom(n,k,p) defines a probability distribution over p for at least that (n,k) pair.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The integral of all possible p, for n=6 and k=3, is 0.0714285714285714.
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is actually a probability distribution with respect to <span class="math notranslate nohighlight">\(n\)</span>. We can fix that by normalizing it, and the best time to do so is after extending the updating rule. First, observe that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f4a068d9-cd4a-4bfd-8e9b-fd848a01e151">
+<span class="eqno">(10)<a class="headerlink" href="#equation-f4a068d9-cd4a-4bfd-8e9b-fd848a01e151" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\sum_{j=1}^c (n_j - 1) &amp;= \left(\sum_{j=1}^c n_j\right) - c = \|\vec n\|_1 - c \\
+(\|\vec n\|_1 - c) - (\|\vec k\|_1 - c) &amp;= \|\vec n\|_1 - \|\vec k\|_1,
+\end{align}\]</div>
+<p>and secondly, remember that multiplication is <a class="reference external" href="https://en.wikipedia.org/wiki/Commutative_property">commutative</a>. This allows us to rearrange terms and write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd0c46cd-d6a9-4c23-9794-96e7b15b5f3b">
+<span class="eqno">(11)<a class="headerlink" href="#equation-dd0c46cd-d6a9-4c23-9794-96e7b15b5f3b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\text{posterior}_\text{Negative Binomial} &amp;= p^c \left( \left( \prod_{j=1}^c \text{Binom}(n_j - 1, k_j - 1, p) \right)  \text{Beta}(\alpha_\text{prior}, \beta_\text{prior}, p) \right) \\
+{} &amp;= p^c \text{Beta}( \alpha_\text{prior} + \|\vec k\|_1 - c, \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1, p ) \\
+{} &amp;= p^c \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - c - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
+\end{align}\]</div>
+<p>We can tidy that up a bit, as <span class="math notranslate nohighlight">\(p^a \cdot p^b = p^{a + b}\)</span> and <span class="math notranslate nohighlight">\(c - c = 0\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-negbinom-unnormed">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-negbinom-unnormed" title="Permalink to this equation">¶</a></span>\[
+{} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
+\]</div>
+<p>To normalize Equation <a class="reference internal" href="#equation-eqn-negbinom-unnormed">(12)</a> according to <span class="math notranslate nohighlight">\(p\)</span>, we only need to divide it by what it integrates to across <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-11fc2e75-626c-4c0f-bbf7-080b877eadcc">
+<span class="eqno">(13)<a class="headerlink" href="#equation-11fc2e75-626c-4c0f-bbf7-080b877eadcc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\int_{p=0}^1 \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
+\end{equation}\]</div>
+<p>Note that all the Gamma functions are constants, unaffected by any change in <span class="math notranslate nohighlight">\(p\)</span>. As <span class="math notranslate nohighlight">\(\int_x c \cdot g(x) = c \int_x g(x)\)</span>, we can pull them out of the integral. Since all the Gamma functions are identical across the numerator and denominator, they cancel out and we are left to evaluate</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c415612b-557c-465c-8db2-134ccfd0a01d">
+<span class="eqno">(14)<a class="headerlink" href="#equation-c415612b-557c-465c-8db2-134ccfd0a01d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\int_{p=0}^1 p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
+\end{equation}\]</div>
+<p>While this may seem daunting, remember that the Beta distribution integrates to 1 across <span class="math notranslate nohighlight">\(p\)</span>. Thus we can rearrange Equation <a class="reference internal" href="#equation-eqn-beta-integral">(9)</a> to find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fc34b50c-4a24-4efa-9a2a-86cad47c19e6">
+<span class="eqno">(15)<a class="headerlink" href="#equation-fc34b50c-4a24-4efa-9a2a-86cad47c19e6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\int_{p=0}^1 \text{Beta}(\alpha, \beta, p) &amp;= 1 \\
+\int_{p=0}^1 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} p^{\alpha-1}(1-p)^{\beta-1} &amp;= 1
+\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-trick">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-beta-trick" title="Permalink to this equation">¶</a></span>\[
+\int_{p=0}^1 p^{\alpha-1}(1-p)^{\beta-1} = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)} \]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-beta-trick">(16)</a> will be incredibly handy in future, but for now it allows us to finish normalizing Equation <a class="reference internal" href="#equation-eqn-negbinom-unnormed">(12)</a>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7f34b3ef-b7a7-4ed8-85c2-82eb57cde1e8">
+<span class="eqno">(17)<a class="headerlink" href="#equation-7f34b3ef-b7a7-4ed8-85c2-82eb57cde1e8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\alpha - 1 &amp;= \alpha_\text{prior} + \|\vec k\|_1 - 1 \\
+\alpha &amp;= \alpha_\text{prior} + \|\vec k\|_1 \\
+\beta &amp;= \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 \\
+\text{posterior}_\text{Negative Binomial} &amp;= \frac{p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}}{\frac{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 )\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}{\Gamma(\alpha_\text{prior} + \beta_\text{prior} \|\vec n\|_1)} }
+\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-negbinom-post">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-beta-negbinom-post" title="Permalink to this equation">¶</a></span>\[
+{} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)} p^{\alpha_\text{prior} + \|\vec k\|_1 - 1} (1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1} 
+\]</div>
+<div class="margin sidebar">
+<p class="sidebar-title">Proving the Binomial Update Rule</p>
+<p>This is also why I didn’t bother showing the derivation of the Binomial update rule: calculating <span class="math notranslate nohighlight">\(\text{Binom}(n,k,p) \cdot \text{Beta}(\alpha, \beta, p)\)</span> is trivially harder than <span class="math notranslate nohighlight">\(p \cdot \text{Beta}(\alpha, \beta, p)\)</span>, and the renormalization process is exactly the same. The extension from <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to <span class="math notranslate nohighlight">\(\vec k\)</span> and <span class="math notranslate nohighlight">\(\vec n\)</span> is also trivial.</p>
+</div>
+<p>This is identical to Equation <a class="reference internal" href="#equation-eqn-beta-binom-post">(8)</a>. The PE report was correct to raise the possibility that barters and drops do not follow the Binomial distribution (pg. 7), but an analysis that used the Negative Binomial instead would come to the same conclusion. The MST report is also incorrect when they state that the Binomial distribution is “a very good approximation” (pg. 10) for barters/drops, in reality it leads to the exact same outcome as assuming the Negative Binomial instead.</p>
+<p>The posterior from Equation <a class="reference internal" href="#equation-eqn-beta-negbinom-post">(18)</a> is worth seeing in action. We’ll apply it to the last toy example from <a class="reference internal" href="#sec-binom-nbinom-demo"><span class="std std-ref">The Binomial and Negative Binomial Distributions</span></a>, using the prior I defined earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># number of Blaze rods needed</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># number of runs to earn k Blaze rods</span>
+
+<span class="n">sum_k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">c</span>  <span class="c1"># we already know this</span>
+<span class="n">sum_n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+    <span class="k">while</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">results</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sum_n</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">results</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">my_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;prior + (sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">, sum_k = </span><span class="si">{</span><span class="n">sum_k</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> \
+         <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;prior (Beta(</span><span class="si">{</span><span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s2">&quot;fig:posterior_in_action&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-posterior-in-action">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_28_0.png" src="_images/methodology_28_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The posterior for the last toy example of <a class="reference internal" href="#sec-binom-nbinom-demo"><span class="std std-ref">The Binomial and Negative Binomial Distributions</span></a>, generated after adding the data to the previously-defined prior. The red vertical line coincides with the true drop rate.</span><a class="headerlink" href="#fig-posterior-in-action" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-posterior-in-action"><span class="std std-ref">The results</span></a> are as expected. Our credence over the Blaze rod drop rate was fairly diffuse to begin with. Adding the simulation data grouped it more tightly together, making extremely low or high drop rates very unlikely. At the same time, the limited evidence allowed drop rates close to <span class="math notranslate nohighlight">\(p = 0.5\)</span> to remain very credible, and random variation kept the most likely drop rate of the posterior from matching the actual value. We’re more certain of the rate, but there’s still some wiggle room.</p>
+</div>
+<div class="section" id="defining-fairness">
+<span id="sec-defining-fairness"></span><h2>Defining Fairness<a class="headerlink" href="#defining-fairness" title="Permalink to this headline">¶</a></h2>
+<p>That last paragraph reveals a big problem. We have a mathematically-precise posterior distribution that contains our credence for all possible Blaze rod drop rates, but we’re not equally interested in all of them. Instead, we’re trying to translate the fuzzy concept of “fairness” into some subset of those rates and eyeballing how those specific rates perform within the posterior. The eyeballing part simply won’t do, as it doesn’t lay out all the underlying assumptions and relies on an estimate generated by a human being. We need to be much more rigorous, and come up with a mathematical definition of “did Dream cheat?” There is no obvious and unambiguous definition, but some definitions are better than others.</p>
+<p>The easiest way to start is not by defining cheating, but instead defining fair play. We know unaltered Minecraft code sets the drop rate to 0.5, so why not define fairness by <span class="math notranslate nohighlight">\(\text{Beta}( \alpha_\text{posterior}, \beta_\text{posterior}, 0.5)\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The likelihood I was playing fair in my simulation is&#39;</span> <span class="o">+</span>
+      <span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span><span class="si">}</span><span class="s1"> .&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The likelihood I was playing fair in my simulation is 4.490060385433022 .
+</pre></div>
+</div>
+</div>
+</div>
+<p>That won’t work, if only because the output of the posterior is a likelihood, which isn’t normalized like a probability is. We need to find some way to scale or modify that value so it maps to something more meaningful to us.</p>
+<p>But there’s a more subtle problem here. Imagine an idealized dart board, centred at the origin of a 2D Cartesian plane and with radius 1. Now pick a point on that dart board, and ask yourself the odds of an ideal dart hitting that point. The answer must be zero: since the dart board contains an <a class="reference external" href="https://mathworld.wolfram.com/UncountablyInfinite.html">uncountably infinite</a> number of points, the odds of a dart hitting any one point is zero. Since the point we chose was arbitrary, we must conclude the odds of an ideal dart hitting our ideal dart board are zero. And yet clearly an ideal dart cast at that board must hit some point.</p>
+<p>In real life, we never work with infinitely small points. Instead, the tip of the dart has a small but finite area, as well as the area we pick on the board. When we switch the idealized case to match, the probability of hitting the board becomes non-zero. Likewise, I could collect Blaze rods in Minecraft until the day I die, and the odds of me getting an exact 50% drop rate would be incredibly small even if I was playing with an unmodified version of Minecraft. Instead, when assessing fairness we should consider a range of possible drop rates. Where do we place the ends of the range, however?</p>
+<p>One possibility comes from coin flipping. We’ve considered that to be a fair random process for a long time, to the point that it’s used to <a class="reference external" href="https://www.theatlantic.com/politics/archive/2012/11/when-a-state-election-can-be-literally-determined-by-a-coin-toss/265413/">settle tied elections</a>. One researcher decided to test how fair a coin toss actually is, by asking medical residents to try biasing their coin flips in order to earn a $20 prize. They were given a few weeks’ notice, a few minutes of practice to warm up, and then asked to flip a coin 300 times.</p>
+<blockquote>
+<div><p>This study shows that when participants are given simple instructions about how to manipulate the toss of a coin and only a few minutes to practise this technique, more than half can significantly manipulate the outcome. With devoted training, more participants would probably be able to achieve this figure, and the magnitude of the manipulation would probably be increased.<a class="bibtex reference internal" href="zzz_bibliography.html#clarke306" id="id1">[CW09]</a></p>
+</div></blockquote>
+<p>If it is so easy to bias a coin toss, how did it get the reputation of being unbiased? Perhaps a coin toss is “fair enough,” in that the amount of bias you can generate isn’t enough to significantly change the outcome. If we take the average bias of coin tosses in this study as our threshold, then “fair enough” constitutes no more than an <span class="math notranslate nohighlight">\(\frac{569}{500}\)</span> improvement in the odds over perfect fairness, or in this case a success rate of 56.9%. We could express that in mathematics as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c89f4d0-0ea7-41ed-a2cc-59e853a70758">
+<span class="eqno">(19)<a class="headerlink" href="#equation-4c89f4d0-0ea7-41ed-a2cc-59e853a70758" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\int_{p=0.431}^{0.569} \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p)
+\end{equation}\]</div>
+<p>This definition also has problems, though. Suppose I decided to modify my copy of Minecraft so that Blaze rods dropped 53% of the time. In the short run this is quite undetectable, but watch what happens when I target seven Blaze rods across 300 sessions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+
+<span class="n">k</span>       <span class="o">=</span> <span class="mi">7</span>     <span class="c1"># number of Blaze rods needed</span>
+<span class="n">c</span>       <span class="o">=</span> <span class="mi">300</span>   <span class="c1"># number of runs to earn k Blaze rods</span>
+<span class="n">r_cheat</span> <span class="o">=</span> <span class="mf">0.53</span>  <span class="c1"># the true drop rate of Blaze rods</span>
+
+<span class="n">sum_k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">c</span>  <span class="c1"># we already know this</span>
+<span class="n">sum_n</span> <span class="o">=</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">r_cheat</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">c</span> <span class="p">))</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;deffair_number_blazes_killed&#39;</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="n">my_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">.</span><span class="mi">45</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;prior + (sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">, sum_k = </span><span class="si">{</span><span class="n">sum_k</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="mf">0.431</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="mf">0.569</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="o">.</span><span class="mi">431</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">r_cheat</span><span class="p">,</span> <span class="o">.</span><span class="mi">569</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:fixed_fairness_bad&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-fixed-fairness-bad">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_33_1.png" src="_images/methodology_33_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The posterior when I target seven Blaze rods over the course of 300 runs, with a 53% chance of success.</span><a class="headerlink" href="#fig-fixed-fairness-bad" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-fixed-fairness-bad"><span class="std std-ref">The posterior</span></a> appears to provide strong evidence that I altered my drop rate, as little credence is massed around <span class="math notranslate nohighlight">\(p = \frac 1 2\)</span>. Yet almost all of the credence lies within the bounds of integration, so our calculated value is effectively identical to a perfectly fair Blaze rod drop rate.</p>
+<p>The 56.9% definition of “fair enough” is for coin tosses, which are rarely done more than once or twice in a sitting. Blaze rod drops can be easily modelled by coin flips, and yet <a class="reference internal" href="#fig-fixed-fairness-bad"><span class="std std-ref">the above figure</span></a> tells me I performed <span class="pasted-text">4028</span> total flips. Our definition of “fair enough” depends on what we can detect, and the more events we observe the better we can detect subtle biases. It isn’t enough for <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> to integrate over a range, its must “tighten up” as more data arrives.</p>
+<p>Consider a version of Minecraft that swapped out the pseudo-random number generator with a sophisticated non-random algorithm. The game can detect the number of Blaze rods I want, and automatically ensure exactly half of the Blazes I kill will drop Blaze rods. If I fed this fair algorithm into the math and generated a posterior, for the <span class="math notranslate nohighlight">\(\|\vec n\|_1 = 28\)</span> case I would get</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># number of Blaze rods needed</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># number of runs to earn k Blaze rods</span>
+
+<span class="n">sum_k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">c</span>  <span class="c1"># we already know this</span>
+<span class="n">sum_n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+    <span class="k">while</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">results</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sum_n</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">results</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">my_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;prior + (sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">, sum_k = </span><span class="si">{</span><span class="n">sum_k</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> \
+         <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;fair play (Beta(</span><span class="si">{</span><span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:fair_play&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-fair-play">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_35_0.png" src="_images/methodology_35_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The posterior after a perfectly fair play session, compared to the posterior for the last toy example of <a class="reference internal" href="#sec-binom-nbinom-demo"><span class="std std-ref">The Binomial and Negative Binomial Distributions</span></a>.</span><a class="headerlink" href="#fig-fair-play" title="Permalink to this image">¶</a></p>
+</div>
+<p>I consider <a class="reference internal" href="#fig-fair-play"><span class="std std-ref">this posterior</span></a> to be a really good match for <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>. You might have thought of a problem, though: what if I’d killed twenty-seven Blazes instead of twenty-eight? Or, for a more extreme example, a perfectly fair Ender pearl barter session is twenty successes for every 423 attempts. Those two numbers are co-prime, so the number of successful pearl barters will only be an integer if the number of attempts is a multiple of 423. It would be terribly inconvenient to force players to barter exactly 423 times so we can analyze their bartering rate.</p>
+<p>Thankfully for us, the Gamma function is defined for fractions. For Ender pearl barters, we can construct <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> by assigning <span class="math notranslate nohighlight">\(\frac{20}{423}\)</span> successes for every single barter, instead of twenty successes for every 423 barters. Now we can handle an arbitrary number of drops or barters.</p>
+<p>Let’s lock the mathematics for <span class="math notranslate nohighlight">\(H_\text{fair}(\|\vec n\|_1)\)</span> down.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-h-fair">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-h-fair" title="Permalink to this equation">¶</a></span>\[
+H_\text{fair}( p ~|~ \|\vec n\|_1 ) = \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p ),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> is the rate we expect during fair play. For instace, <span class="math notranslate nohighlight">\(r_\text{blaze} = \frac 1 2\)</span> and <span class="math notranslate nohighlight">\(r_\text{pearl} = \frac{20}{423}\)</span>.</p>
+<p>If you do not agree with my definition of “fair play” according to Equation <a class="reference internal" href="#equation-eqn-h-fair">(20)</a>, I’d encourage you to think up your own and express it in a mathematically precise way. In the meantime, I’ll use my definition to create a likelihood from the posterior. To do that, I multiply <span class="math notranslate nohighlight">\(H_\text{fair}(\|\vec n\|_1)\)</span> by the Beta posterior and integrate the combination.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-16258730-8b34-4b43-9657-1a019d4b9036">
+<span class="eqno">(21)<a class="headerlink" href="#equation-16258730-8b34-4b43-9657-1a019d4b9036" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( \vec n, p ) = \int_{p=0}^1 \text{Beta}( \alpha_\text{prior} + \|\vec k\|_1 , \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1, p ) \cdot \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p )
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-bd6efcf3-9b92-4c66-93eb-6f98deed120f">
+<span class="eqno">(22)<a class="headerlink" href="#equation-bd6efcf3-9b92-4c66-93eb-6f98deed120f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+{} = \int_{p=0}^1 \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)} p^{\alpha_\text{prior} + \|\vec k\|_1 - 1} (1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1} \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1)\Gamma(\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1)} p^{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1} (1-p)^{\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1 - 1} 
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f70de727-cbe8-418b-8cac-710822c6d85b">
+<span class="eqno">(23)<a class="headerlink" href="#equation-f70de727-cbe8-418b-8cac-710822c6d85b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+{} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)^2}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)\Gamma(\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1)\Gamma(\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1)} \int_{p=0}^1  p^{2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 2} (1-p)^{2 \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1  + (1-r_\text{fair})\|\vec n\|_1 - 2}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-068330e3-a89f-4447-91b6-52da95e18598">
+<span class="eqno">(24)<a class="headerlink" href="#equation-068330e3-a89f-4447-91b6-52da95e18598" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\|\vec n\|_1 + (1-r_\text{fair})\|\vec n\|_1 = (2 -r_\text{fair})\|\vec n\|_1
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-70e9da15-9765-489a-9326-3afe38ae36b9">
+<span class="eqno">(25)<a class="headerlink" href="#equation-70e9da15-9765-489a-9326-3afe38ae36b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\int_{p=0}^1  p^{2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 2} (1-p)^{2 \beta_\text{prior} + - \|\vec k\|_1  + (2-r_\text{fair})\|\vec n\|_1 - 2} = \frac{\Gamma(2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 1)\Gamma(2 \beta_\text{prior} - \|\vec k\|_1  + (2-r_\text{fair})\|\vec n\|_1 - 1)}{\Gamma(2 \alpha_\text{prior} + 2 \beta_\text{prior} + 2\|\vec n\|_1 - 2)}
+\end{equation}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-posterior-h-fair">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-posterior-h-fair" title="Permalink to this equation">¶</a></span>\[
+{} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)^2 \Gamma(2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 1)\Gamma(2 \beta_\text{prior} - \|\vec k\|_1  + (2-r_\text{fair})\|\vec n\|_1 - 1) }{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)\Gamma(\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1)\Gamma(\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1)\Gamma(2 \alpha_\text{prior} + 2 \beta_\text{prior} + 2\|\vec n\|_1 - 2)} 
+\]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-posterior-h-fair">(26)</a> isn’t as tidy as we’d hoped, but at least that integral is gone. It looks very difficult to evaluate, but I have an ace up my sleeve. <code class="docutils literal notranslate"><span class="pre">mpmath</span></code> is a Python library that allows you to do calculations with arbitrary precision. This is handy when dealing with very large numbers, as conventional floating-point math breaks when the numbers get too big. One function in that library, <code class="docutils literal notranslate"><span class="pre">mpmath.gammaprod()</span></code>, allows you to calculate fractions with arbitrary numbers of Gamma functions in the numerator or denominator. It makes evaluating messes like Equation <a class="reference internal" href="#equation-eqn-posterior-h-fair">(26)</a> a snap.</p>
+<p>Let’s see it in action. I’ll fix <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> = <span class="pasted-text">28</span> and <span class="math notranslate nohighlight">\(r_\text{fair} = \frac 1 2\)</span>, apply my prior of <span class="math notranslate nohighlight">\(\alpha_\text{prior} = \beta_\text{prior} = 4\)</span>, and then enumerate all possible values of <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> and plot them on a chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">posterior_H_fair</span><span class="p">(</span> <span class="n">vec_k</span><span class="p">,</span> <span class="n">vec_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the likelihood of H_fair, given the posterior distribution defined by vec_n, vec_k, and the prior.</span>
+<span class="sd">        Relies on mpmath to perform all calculations, which also means you can adjust the precision.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vec_k: A total or list containing the successful attempts at this task until it was completed.</span>
+<span class="sd">    vec_n: A total or list containing the total attempts at this task until it was completed.</span>
+<span class="sd">    r_fair: A float between 0 and 1 representing the probability of success predicted by H_fair.</span>
+<span class="sd">    a_prior: A positive or zero float representing the alpha variable of the prior.</span>
+<span class="sd">    b_prior: A positive or zero float representing the beta variable of the prior.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    The likelihood, an mpmath float in the range [0,infinity].&quot;&quot;&quot;</span>
+
+    <span class="c1"># place some imports here to encourage copy-paste coding</span>
+    <span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">gammaprod</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="nb">sum</span>        <span class="c1"># vectorized, likely faster than Python&#39;s sum</span>
+    
+    <span class="c1"># the downside of encouraging copy-pasting is that this code will face some</span>
+    <span class="c1">#  dirty/invalid inputs. By going wild with asserts, I&#39;m making it tougher to</span>
+    <span class="c1">#  use this function inappropriately.</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">r_fair</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r_fair</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">b_prior</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># use duck typing to determine whether these are lists or not</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">len_k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec_k</span><span class="p">)</span>
+        <span class="n">k_is_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">len_k</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">k_is_list</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">len_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec_n</span><span class="p">)</span>
+        <span class="n">n_is_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">len_n</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">n_is_list</span> <span class="o">=</span> <span class="kc">False</span>
+   
+    <span class="c1"># do additional checks if both are lists</span>
+    <span class="k">if</span> <span class="n">k_is_list</span> <span class="ow">and</span> <span class="n">n_is_list</span><span class="p">:</span>
+        
+        <span class="k">assert</span> <span class="n">len_k</span> <span class="o">==</span> <span class="n">len_n</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vec_n</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">vec_k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">vec_k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">)</span>
+                  
+    <span class="c1"># now calculate sums      </span>
+    <span class="k">if</span> <span class="n">k_is_list</span><span class="p">:</span>
+        <span class="n">sum_k</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">vec_k</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sum_k</span> <span class="o">=</span> <span class="n">vec_k</span>
+        
+    <span class="k">if</span> <span class="n">n_is_list</span><span class="p">:</span>
+        <span class="n">sum_n</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">vec_n</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sum_n</span> <span class="o">=</span> <span class="n">vec_n</span>
+        
+    <span class="c1"># one final round of checks</span>
+    <span class="k">assert</span> <span class="n">sum_n</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">sum_k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sum_k</span> <span class="o">&lt;=</span> <span class="n">sum_n</span><span class="p">)</span>
+
+    <span class="c1"># calculate the final result</span>
+    <span class="n">numerator</span> <span class="o">=</span>   <span class="p">[</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">,</span>
+                  <span class="mi">2</span><span class="o">*</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="n">r_fair</span><span class="o">*</span><span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="mi">2</span><span class="o">*</span><span class="n">b_prior</span> <span class="o">-</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">r_fair</span><span class="p">)</span><span class="o">*</span><span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="p">[</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">,</span>
+                   <span class="n">a_prior</span> <span class="o">+</span> <span class="n">r_fair</span><span class="o">*</span><span class="n">sum_n</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span><span class="n">r_fair</span><span class="p">)</span><span class="o">*</span><span class="n">sum_n</span><span class="p">,</span>
+                  <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+    
+    <span class="k">return</span> <span class="n">gammaprod</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_n</span>  <span class="o">=</span> <span class="mi">28</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;deffair_sum_n&#39;</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="n">r_fair</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span> <span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sum_n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">posterior_H_fair</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> \
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">, prior = (</span><span class="si">{</span><span class="n">a_prior</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">b_prior</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;likelihood&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span> <span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sum_k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sum_n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sum_n</span> <span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:posterior_H_fair&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-posterior-h-fair">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_41_1.png" src="_images/methodology_41_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The likelihood of all possible <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> values, when <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> = <span class="pasted-text">28</span> and all other parameters are fixed.</span><a class="headerlink" href="#fig-posterior-h-fair" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-posterior-h-fair"><span class="std std-ref">This likelihood</span></a> behaves much as we’d expect. <span class="math notranslate nohighlight">\(H_\text{fair}(\|\vec n\|_1)\)</span> is maximized when <span class="math notranslate nohighlight">\(\|\vec k\|_1 = r_\text{fair}\|\vec n\|_1\)</span>, remains quite high for nearby values, but rapidly drops off as <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> diverges.</p>
+</div>
+<div class="section" id="defining-cheating">
+<span id="sec-defining-cheating"></span><h2>Defining Cheating<a class="headerlink" href="#defining-cheating" title="Permalink to this headline">¶</a></h2>
+<p>We’re still dealing with raw likelihoods, though. As mentioned in <a class="reference internal" href="critique_of_reports.html#sec-missing-context"><span class="std std-ref">Missing Context</span></a>, we need a reference point. The usual solution is to calculate a Bayes factor.<a class="bibtex reference internal" href="zzz_bibliography.html#doi-10-1080-01621459-1995-10476572" id="id2">[KR95]</a>
+You’ve likely seen Bayes’ Theorem,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d124ff4f-4b39-43ae-8031-033585c94fa7">
+<span class="eqno">(27)<a class="headerlink" href="#equation-d124ff4f-4b39-43ae-8031-033585c94fa7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+p( H_1 | E ) = \frac{p( E | H_1 ) p( H_1 )}{p(E)}
+\end{equation}\]</div>
+<p>The likelihood function <span class="math notranslate nohighlight">\(p( E | H_1 )\)</span> and prior <span class="math notranslate nohighlight">\(p( H_1 )\)</span> should be familiar. The normalization factor <span class="math notranslate nohighlight">\(p( E )\)</span> is the probability of observing the evidence over all possible hypotheses, and is the canonical reference point. “All possible” is not the same as “all,” so the most common way to evaluate it is to declare a handful of hypotheses as the only ones that are possible, evaluate their likelihoods, then calculate <span class="math notranslate nohighlight">\(p(E) = p( E | H_1 )p(H_1) + p( E | H_2 )p(H_2) + \dots + p( E | H_j )p( H_j )\)</span>. Defining all those hypotheses can be difficult, and opens us up to charges of cooking the books.</p>
+<p>An alternate approach is to define just one more hypothesis and divide.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-bayes-factor">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eqn-bayes-factor" title="Permalink to this equation">¶</a></span>\[
+\frac{p( H_1 | E )}{p( H_2 | E )} = \frac{p( E | H_1 ) p( H_1 )}{p( E | H_2 ) p( H_2 )} 
+\]</div>
+<p>Not only is <span class="math notranslate nohighlight">\(p(E)\)</span> eliminated, constants across the numerator and denominator cancel out. This “Bayes factor” has the same interpretation as betting odds, with numbers greater than 1 indicating <span class="math notranslate nohighlight">\(H_1\)</span> is favoured and vice-versa. It has none of the flaws of p-values. For instance, since it obeys all the properties of a likelihood you can combine multiple Bayes factors together by multiplying them, just as you do with probabilities.</p>
+<p>In this context, the only worthwhile second hypothesis is “did Dream cheat?” Unfortunately, while there’s only one <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> there are many ways to cheat. Ideally we’d consult with experts about Minecraft speedrunning and develop a mathematically-precise hypothesis about what cheating looks like. Since I do not have those connections, I’ll invoke a backup strat.</p>
+<p>If we accept my definition of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>, we can define <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> as the inverse of that definition; where <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> asserts fair play is likely, <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> asserts it is unlikely, and vice-versa. The easiest way to accomplish that is to subtract the likelihood output by <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> from some other value. This value must be high enough to prevent the result from ever being negative, and not so high that it waters down the hypothesis to look more like the Bayes/Laplace prior. The obvious choice is to use the maximal likelihood of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> as that value, which is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b8213cc-145d-4474-b896-da6fee033c44">
+<span class="eqno">(29)<a class="headerlink" href="#equation-9b8213cc-145d-4474-b896-da6fee033c44" title="Permalink to this equation">¶</a></span>\[\begin{align}
+M_\text{fair} &amp;= \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, m_\text{fair}) \\
+m_\text{fair} &amp;= \frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1}{\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - 2}
+\end{align}\]</div>
+<p>There are three flaws with using <span class="math notranslate nohighlight">\(M_\text{fair} - H_\text{fair}\)</span> as <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>. This hypothesis gives maximal credence to both <span class="math notranslate nohighlight">\(p = 0\)</span> and <span class="math notranslate nohighlight">\(p = 1\)</span>, and yet no cheater would dare set their probability of success to those values. Fortunately, my choice of subjective prior already factored that in. If you go with another prior, either alter it the same way or adjust <span class="math notranslate nohighlight">\(M_\text{fair} - H_\text{fair}\)</span> appropriately.</p>
+<p>This hypothesis also states that if <span class="math notranslate nohighlight">\(\|\vec k\|_1 = r_\text{fair}\|\vec n\|_1\)</span>, the likelihood of cheating is zero. Yet we can easily concoct scenarios where a run of bad luck happens to result in a record that appears perfectly fair. In comparison, <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> has no zeros except at <span class="math notranslate nohighlight">\(p = 0\)</span> and <span class="math notranslate nohighlight">\(p = 1\)</span>. A better alternative is to add some small offset to model to capture the small but ever-present possibility of cheating. It would be wise to scale this offset by the inverse of <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span>, to reflect the fact that as more data comes in we become more confident that cheating has not occurred.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Non-informative Priors</p>
+<p>The scare quotes around “non-informative” are because there’s a strong argument to be made all priors leak information into the posterior, as what we consider “non-informative” according to one parametrization may not be the same with another.<a class="bibtex reference internal" href="zzz_bibliography.html#syversveen1998noninformative" id="id3">[Syv98]</a> It’s better to think of non-informative priors as weakly informative in most circumstances, and watch carefully for the exceptions.</p>
+</div>
+<p>I propose <span class="math notranslate nohighlight">\(\frac 1 2 \|\vec n\|_1^{-1}\)</span> is a good choice. Consider an ideal Bernoulli process representing evidence towards some hypothesis. As we know nothing about this process, “non-informative” priors make more sense than a subjective ones. I consider the best-justified “non-informative” prior to be <a class="reference external" href="https://en.wikipedia.org/wiki/Jeffreys_prior">Jeffreys’ prior</a>, which in this case is <span class="math notranslate nohighlight">\(\text{Beta}(\frac 1 2, \frac 1 2)\)</span>. If all <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> atoms of evidence pulled from this process goes against the hypothesis, the mean value for the probability of truth <span class="math notranslate nohighlight">\(p\)</span> is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e09a7be2-ddf3-4771-9bad-6fa017ea45b6">
+<span class="eqno">(30)<a class="headerlink" href="#equation-e09a7be2-ddf3-4771-9bad-6fa017ea45b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{ \frac 1 2 }{ \frac 1 2 + \|\vec n\|_1} \approx \frac 1 2 \frac 1 {\|\vec n\|_1}
+\end{equation}\]</div>
+<p>Naturally, there’s room for disagreement. If you think the Bayes/Laplace prior is less informative, then <span class="math notranslate nohighlight">\(\|\vec n\|_1^{-1}\)</span> is a better offset. I can keep the constant scalar separate, so if you prefer the Bayes/Laplace you can substitute 1 in for the Jeffreys <span class="math notranslate nohighlight">\(\frac 1 2\)</span>, or even eliminate the offset entirely by setting the constant to zero.</p>
+<p>Third and finally, <span class="math notranslate nohighlight">\(M_\text{fair} - H_\text{fair} + \frac 1 2 \|\vec n\|_1^{-1}\)</span> is not normalized when integrated by <span class="math notranslate nohighlight">\(p\)</span>, a requirement if we’re to compare it against <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>. This is simple to fix, as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6e3638cc-2e6c-404d-86d9-57ca62e2e530">
+<span class="eqno">(31)<a class="headerlink" href="#equation-6e3638cc-2e6c-404d-86d9-57ca62e2e530" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\int \left( g(x) + h(x) \right) &amp;= \left( \int g(x) \right) + \left( \int h(x) \right) \\
+\int_{p=0}^1 t &amp;= \left. t\cdot p \right|_{p=0}^1 = t\cdot(1) - t\cdot(0) = t
+\end{align}\]</div>
+<p>so therefore</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c78bcb42-af50-42d5-bcf5-fe510738b5ad">
+<span class="eqno">(32)<a class="headerlink" href="#equation-c78bcb42-af50-42d5-bcf5-fe510738b5ad" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\int_{p=0}^1 M_\text{fair} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p ) + \frac 1 {2 \|\vec n\|_1} &amp;= M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1
+\end{align}\]</div>
+<p>and we can finally write out <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-h-cheat">
+<span class="eqno">(33)<a class="headerlink" href="#equation-eqn-h-cheat" title="Permalink to this equation">¶</a></span>\[
+H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) = \frac{ M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p) }{M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1},
+\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-90420453-6c90-4d7c-a82c-6d8663ae26aa">
+<span class="eqno">(34)<a class="headerlink" href="#equation-90420453-6c90-4d7c-a82c-6d8663ae26aa" title="Permalink to this equation">¶</a></span>\[\begin{align}
+M_\text{fair} &amp;= \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, m_\text{fair}) \\
+m_\text{fair} &amp;= \frac{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1}{\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - 2}
+\end{align}\]</div>
+<p>For the toy example above, Equation <a class="reference internal" href="#equation-eqn-h-cheat">(33)</a> looks like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># number of Blaze rods needed</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># number of runs to earn k Blaze rods</span>
+
+<span class="n">sum_k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">c</span>  <span class="c1"># we already know this</span>
+<span class="n">sum_n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span>
+    <span class="k">while</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">results</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sum_n</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">results</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">my_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">my_prior</span><span class="p">)</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">sum_n</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">sum_n</span><span class="p">)),</span> \
+         <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;H_cheat (sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">my_prior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;H_fair (sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:h_cheat_h_fair_toy&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-h-cheat-h-fair-toy">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_49_0.png" src="_images/methodology_49_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Comparing <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> with <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>, applied to the toy example.</span><a class="headerlink" href="#fig-h-cheat-h-fair-toy" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<span id="sec-putting-together"></span><h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<p>We finally have enough math in place to calculate a Bayes factor.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1f6c27e7-4138-4701-8511-e8f94d930c44">
+<span class="eqno">(35)<a class="headerlink" href="#equation-1f6c27e7-4138-4701-8511-e8f94d930c44" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\text{BF} &amp;= \frac{ \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) }{ \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) } \\
+\int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) &amp;= \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) \frac{ M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p) }{M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1} \\
+{} &amp;= \frac 1 {M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1} \left( M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) \right)
+\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-bf-h-fair-h-cheat">
+<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-bf-h-fair-h-cheat" title="Permalink to this equation">¶</a></span>\[
+\text{BF} = \frac{ \left(M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1\right) \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) }{ M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) } 
+\]</div>
+<p>Notice that Equation <a class="reference internal" href="#equation-eqn-bf-h-fair-h-cheat">(36)</a> uses the same integral invoked to evaluate <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> on the posterior, so I can recycle <code class="docutils literal notranslate"><span class="pre">posterior_H_fair()</span></code> to simplify the calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">vec_k</span><span class="p">,</span> <span class="n">vec_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">,</span> <span class="n">sum_n_scalar</span><span class="o">=</span><span class="mf">0.5</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the Bayes factor associated with H_fair / H_cheat, given the posterior distribution defined by vec_n, vec_k, and the prior.</span>
+<span class="sd">        Relies on mpmath to perform all calculations, which also means you can adjust the precision.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vec_k: A total or list containing the successful attempts at this task until it was completed.</span>
+<span class="sd">    vec_n: A total or list containing the total attempts at this task until it was completed.</span>
+<span class="sd">    r_fair: A float between 0 and 1 representing the probability of success predicted by H_fair.</span>
+<span class="sd">    a_prior: A positive or zero float representing the alpha variable of the prior.</span>
+<span class="sd">    b_prior: A positive or zero float representing the beta variable of the prior.</span>
+<span class="sd">    sum_n_scalar: A positive or zero float that&#39;s used to weight the ||vec_n|| component. Defaults to 1/2.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    The Bayes factor, a likelihood and mpmath float in the range [0,infinity]. Values greater than 1 favour</span>
+<span class="sd">       fairnes, values below 1 favour cheating.&quot;&quot;&quot;</span>
+    
+    <span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">fdiv</span><span class="p">,</span> <span class="n">fmul</span><span class="p">,</span> <span class="n">gammaprod</span><span class="p">,</span> <span class="n">power</span>
+    
+    <span class="c1"># validate our one new variable</span>
+    <span class="k">assert</span> <span class="n">sum_n_scalar</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    
+    <span class="c1"># rely on posterior_H_fair()&#39;s assertions to validate the remaining inputs</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">posterior_H_fair</span><span class="p">(</span> <span class="n">vec_k</span><span class="p">,</span> <span class="n">vec_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="p">)</span>
+    
+    <span class="c1"># but we still need sum_n for calculations</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">len_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec_n</span><span class="p">)</span>
+        <span class="n">n_is_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">len_n</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">n_is_list</span> <span class="o">=</span> <span class="kc">False</span>  
+                 
+    <span class="k">if</span> <span class="n">n_is_list</span><span class="p">:</span>
+        <span class="n">sum_n</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">vec_n</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sum_n</span> <span class="o">=</span> <span class="n">vec_n</span>
+
+    
+    <span class="c1"># invoke mpmath instead of python&#39;s functions, to discourage precision loss</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">fdiv</span><span class="p">(</span> <span class="n">a_prior</span> <span class="o">+</span> <span class="n">r_fair</span><span class="o">*</span><span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>  <span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="mi">2</span> <span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">fmul</span><span class="p">(</span> <span class="n">gammaprod</span><span class="p">([</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">],</span> <span class="p">[</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">r_fair</span><span class="o">*</span><span class="n">sum_n</span><span class="p">,</span><span class="n">b_prior</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r_fair</span><span class="p">)</span><span class="o">*</span><span class="n">sum_n</span><span class="p">]),</span> \
+             <span class="n">fmul</span><span class="p">(</span><span class="n">power</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">a_prior</span> <span class="o">+</span> <span class="n">r_fair</span><span class="o">*</span><span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">power</span><span class="p">(</span> <span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r_fair</span><span class="p">)</span><span class="o">*</span><span class="n">sum_n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">))</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fdiv</span><span class="p">(</span> <span class="n">fmul</span><span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">sum_n_scalar</span><span class="o">/</span><span class="n">sum_n</span><span class="p">,</span> <span class="n">integral</span><span class="p">),</span> <span class="n">M</span> <span class="o">+</span> <span class="n">sum_n_scalar</span><span class="o">/</span><span class="n">sum_n</span> <span class="o">-</span> <span class="n">integral</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see <code class="docutils literal notranslate"><span class="pre">BF_H_fair_H_cheat()</span></code> in action.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_n</span>  <span class="o">=</span> <span class="mi">28</span>
+<span class="n">r_fair</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span> <span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sum_n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">r_fair</span><span class="p">),</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> \
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;sum_n = </span><span class="si">{</span><span class="n">sum_n</span><span class="si">}</span><span class="s1">, prior = (</span><span class="si">{</span><span class="n">a_prior</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">b_prior</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> \
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;break even&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;H_fair / H_cheat&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sum_k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">28</span> <span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:BF_posterior_H_fair&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-bf-posterior-h-fair">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_53_0.png" src="_images/methodology_53_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">The Bayes factor for all possible <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> values, when <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> = <span class="pasted-text">28</span> and all other parameters are fixed.</span><a class="headerlink" href="#fig-bf-posterior-h-fair" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-bf-posterior-h-fair"><span class="std std-ref">The results</span></a> are as expected. The sharper peak relative to <a class="reference internal" href="#fig-posterior-h-fair"><span class="std std-ref">the other chart</span></a> with <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> alone is due to the increasing likelihood of <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> given a <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> that diverges from perfect fairness. Values of <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> near <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> are nonetheless considered net evidence in favour of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>, while values far from there count as better evidence for <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>. The crossover point is about six and a half possible values of <span class="math notranslate nohighlight">\(\|\vec k\|_1\)</span> away from perfect fairness in this case, though that point should be different for different <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span>.</p>
+<p>Another useful test is to fix <span class="math notranslate nohighlight">\(\|\vec k\|_1 = \frac 1 2 \|\vec n\|_1\)</span> and increase <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span>. If you’ve done much frequentist analysis, you’ve noticed the term <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> seems to pop up everywhere. This is a side-effect of the central limit theorem applied to “well-behaved” distributions, where <a class="reference external" href="https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem">it’s been proven</a> that estimates of true mean will converge to that value at a rate proportional to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>. We can think of that value as a metric for how strong the evidence is. Since Bernoulli processes are “well-behaved,” our evidence for any fixed hypothesis should show the same scaling factor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span> <span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">18</span><span class="p">),</span> <span class="mi">256</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">r_fair</span><span class="p">),</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> \
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;maximal likelihood&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mf">1.9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1.9 * sqrt(sum_n)&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;H_fair / H_cheat&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sum_n&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">18</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:weight_evidence&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-weight-evidence">
+<div class="cell_output docutils container">
+<img alt="_images/methodology_55_0.png" src="_images/methodology_55_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">How the Bayes factor increases when <span class="math notranslate nohighlight">\(\|\vec k\|_1 = \frac 1 2 \|\vec n\|_1\)</span>.</span><a class="headerlink" href="#fig-weight-evidence" title="Permalink to this image">¶</a></p>
+</div>
+<p>Again, <a class="reference internal" href="#fig-weight-evidence"><span class="std std-ref">this chart</span></a> holds no surprises, save a subtle divergence between the theoretical and practical behaviour of the Bayes factor. This is likely due to the <span class="math notranslate nohighlight">\(\frac 1 2 \|\vec n\|_1^{-1}\)</span> term adding some skew when <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> is small.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="critique_of_reports.html" title="previous page">A Critique of the Reports</a>
+    <a class='right-next' id="next-link" href="sim_results.html" title="next page">Simulation Results</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By hjhornbeck<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

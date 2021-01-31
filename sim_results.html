@@ -1,0 +1,769 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation Results &#8212; Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Real-World Results" href="data_results.html" />
+    <link rel="prev" title="Methodology" href="methodology.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="executive_summary.html">
+   Executive Summary
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="critique_of_reports.html">
+   A Critique of the Reports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="methodology.html">
+   Methodology
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Simulation Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_results.html">
+   Real-World Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="future_work.html">
+   Future Work
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zzz_bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/sim_results.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hjhornbeck/bayes_speedrun_cheating/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hjhornbeck/bayes_speedrun_cheating/master?urlpath=tree/sim_results.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blaze-rod-drops">
+   Blaze Rod Drops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-mechanics-of-blaze-rods">
+     The Mechanics of Blaze Rods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cheating-techniques">
+   Cheating Techniques
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ender-pearl-barters">
+   Ender Pearl Barters
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulation-results">
+<h1>Simulation Results<a class="headerlink" href="#simulation-results" title="Permalink to this headline">¶</a></h1>
+<p>As nice as all that mathematics was, it means nothing if this Bayes factor doesn’t work as advertised. If it doesn’t increase when a person plays with an unaltered copy of the game, and if it doesn’t decrease when a cheater modifies their drop or barter rate, then it is useless no matter what the math tells us.</p>
+<p>Modifying a copy of Minecraft 1.16.1 and doing speed runs is a time-consuming process, but we have a viable alternative: since the decision of whether to drop a Blaze rod or collection of Ender pearls is a Bernoulli process, it can be perfectly simulated by any other Bernoulli process. Pseudo-random number generators are a particularly good choice for this, as the probability of success can be controlled directly. We must still take care to match the behaviour of Minecraft speedrunners as closely as we can, of course.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell to install all dependencies locally</span>
+<span class="o">!</span>pip -q install --user mpmath myst_nb numpy pandas matplotlib scipy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span><span class="n">factorial</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">mp</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">differential_evolution</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span><span class="p">,</span><span class="n">binom</span><span class="p">,</span><span class="n">nbinom</span>
+
+
+<span class="n">dpi</span>         <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># change this to increase/decrease the resolution charts are made at</span>
+<span class="n">book_output</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># changing this to False will make it easier to view plots in a Jupyter notebook</span>
+
+<span class="k">def</span> <span class="nf">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="n">name</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A helper to control how we&#39;re displaying figures.&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">book_output</span>
+    
+    <span class="k">if</span> <span class="n">book_output</span><span class="p">:</span>
+        <span class="n">glue</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing &quot;simple_bernoulli_bf.py&quot;? Uncomment this line to grab it from the repository</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/simple_bernoulli_bf.py&quot;</span>
+
+<span class="kn">from</span> <span class="nn">simple_bernoulli_bf</span> <span class="kn">import</span> <span class="n">prior</span><span class="p">,</span> <span class="n">posterior_H_fair</span><span class="p">,</span> <span class="n">BF_H_fair_H_cheat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="blaze-rod-drops">
+<h2>Blaze Rod Drops<a class="headerlink" href="#blaze-rod-drops" title="Permalink to this headline">¶</a></h2>
+<p>Blaze rod drops are the easiest to model, as it almost certainly follows the Negative Binomial distribution. To try and match what actual speedrunners do, we’ll load up all the data from the MST report and pool it together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing the data files? Uncommenting and running this cell might retrieve them</span>
+<span class="c1"># !mkdir data</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.benex.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.dream.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.illumina.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.sizzler.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.vadikus007.tsv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a blank dataframe to store all this data in</span>
+<span class="n">all_blaze_rods</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n&#39;</span><span class="p">:[],</span> <span class="s1">&#39;k&#39;</span><span class="p">:[]}</span> <span class="p">)</span>
+
+
+<span class="c1"># the Ender pearl stats have slightly different names</span>
+<span class="n">blaze_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
+
+<span class="c1"># load in the data</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">blaze_players</span><span class="p">:</span>
+    <span class="n">all_blaze_rods</span> <span class="o">=</span> <span class="n">all_blaze_rods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/blaze.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># pull out all the unique values to be the X axis along our bar chart</span>
+<span class="n">blaze_k</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">all_blaze_rods</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span> <span class="n">blaze_k</span><span class="p">,</span> <span class="p">[</span><span class="n">all_blaze_rods</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">][</span> <span class="n">all_blaze_rods</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span> <span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">blaze_k</span><span class="p">],</span> \
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;blaze rods gathered&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;blaze rods gathered&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;number of runs where k rods were gathered&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:blaze_rods_gathered&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-blaze-rods-gathered">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_6_0.png" src="_images/sim_results_6_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The number of Blaze rods gathered during runs from five separate top-level speedrunners, according to the Minecraft Speeedrunning Team.</span><a class="headerlink" href="#fig-blaze-rods-gathered" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="the-mechanics-of-blaze-rods">
+<span id="sec-blaze-rod-mechanics"></span><h3>The Mechanics of Blaze Rods<a class="headerlink" href="#the-mechanics-of-blaze-rods" title="Permalink to this headline">¶</a></h3>
+<p>There’s a surprising amount of variance in <a class="reference internal" href="#fig-blaze-rods-gathered"><span class="std std-ref">the number of Blaze rods gathered</span></a>, given the game mechanics involved.</p>
+<p>Accessing The End requires finding a Stronghold, and finding that requires tossing Eyes of Ender to point out the direction of the Stronghold. Triangulating the location requires a minimum of two Eyes, and there’s a <a class="reference external" href="https://minecraft.gamepedia.com/Eye_of_Ender#Locating_strongholds">one in five chance</a> an Eye will break when tossed. Once found, players must find <a class="reference external" href="https://minecraft.gamepedia.com/End_Portal_Frame">a portal</a> within the Stronghold that grants them access to The End. This portal is powered by twelve Eyes of Ender, which have a one-in-ten chance of spontaneously appearing in an appropriate spot. Do the math, and the most common outcome is to have one Eye of Ender already in the portal, while three or more Eyes are present 34.1% of the time.</p>
+<p>Eyes of Ender are crafted by combining Ender pearls with Blaze powder. Two items of the latter can be created from one Blaze rod. Given all of the above, the safest route is to kill Blazes until the runner has seven Blaze rods, which allows for fourteen Blaze powders and thus fourteen Eyes of Ender. Even if two Eyes of Ender break when finding the Stronghold, which has a 4% chance of happening, the runner has enough Eyes to fill an empty portal.</p>
+<p>While the safest route is indeed the most common one, a substantial number of speedruns collected only six rods. This is a viable route, as immediate entry to The End either requires no Eyes break while finding the stronghold (64% odds), only one Eye breaks but the portal has at least one Eye already present (about 23% odds), or both eyes break but two or more Eyes are present (about 1.4%). Surprisingly, a number of runners also collected eight rods. This may be because the runner wasn’t confident they could find the Stronghold with just two Eyes and wanted some safety margin.</p>
+<p>Five rods is the bare minimum I could see used to complete a speed run, as the odds of a runner with only eight Eyes of Ender keeping both the ones they toss and finding four or more in the End portal are only 1.6%. The low-rod runs were likely aborted due to other reasons. That one run of ten rods comes from Benex, and <a class="reference external" href="https://docs.google.com/spreadsheets/d/1P58S94yKB3Bm4A4_VotWyeelk_PvaTE1nDZx9DalEyk/edit#gid=1130044964">the comments</a> about going after Wither skeletons suggest it wasn’t a typical speedrun.</p>
+<p>In real life, speed runners pick a range of Blaze rod targets, so our simulation should do the same. We’ll discard all the recorded runs where less than five and more than eight rods were collected, and use their relative frequencies to pick <span class="pasted-text">200</span> values for <span class="math notranslate nohighlight">\(k\)</span>. We’ll then create three universes: one where players with an unmodified game have <span class="math notranslate nohighlight">\(\vec k\)</span> for Blaze rod targets, one where players boost their drop odds for the same targets, and one where players reduce their odds. Since one random simulation doesn’t give you a feel for the variation present, we’ll run <span class="pasted-text">16</span> distinct players for each of the three scenarios just mentioned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># generate the weights and normalize</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="n">all_blaze_rods</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">][</span> <span class="n">all_blaze_rods</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span> <span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)]</span> <span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="n">r_fair</span>    <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">r_cheat_h</span> <span class="o">=</span> <span class="mf">0.569</span> <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_blaze_r_cheat_h&#39;</span><span class="p">,</span> <span class="n">r_cheat_h</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">r_cheat_l</span> <span class="o">=</span> <span class="mf">0.431</span> <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_blaze_r_cheat_l&#39;</span><span class="p">,</span> <span class="n">r_cheat_l</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">count</span>     <span class="o">=</span> <span class="mi">200</span>   <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_blaze_count&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">clones</span>    <span class="o">=</span> <span class="mi">16</span>    <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_blaze_clones&#39;</span><span class="p">,</span> <span class="n">clones</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span>   <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">x</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">k</span>      <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">clones</span><span class="p">,</span><span class="n">count</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">weights</span> <span class="p">)</span>
+<span class="n">sum_k</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">cheat_h_nk</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">r_cheat_h</span> <span class="p">)</span>
+<span class="n">cheat_l_nk</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">r_cheat_l</span> <span class="p">)</span>
+<span class="n">fair_nk</span>    <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">r_fair</span> <span class="p">)</span>
+
+<span class="n">sum_k</span>         <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_cheat_h_n</span> <span class="o">=</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">cheat_h_nk</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_cheat_l_n</span> <span class="o">=</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">cheat_l_nk</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_fair_n</span>    <span class="o">=</span> <span class="n">sum_k</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">fair_nk</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clones</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_cheat_h_n</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;cheater (r=</span><span class="si">{</span><span class="n">r_cheat_h</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_cheat_l_n</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;cheater (r=</span><span class="si">{</span><span class="n">r_cheat_l</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_fair_n</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;fair (r=</span><span class="si">{</span><span class="n">r_fair</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;--g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;break even&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rounds&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="n">count</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;H_fair / H_cheat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:sim_blaze_trio&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-sim-blaze-trio">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_8_4.png" src="_images/sim_results_8_4.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">The behaviour of this Bayes Factor for <span class="pasted-text">16</span> clones of three players that had different Blaze rod drop rates. One group of <span class="pasted-text">16</span> clones had the usual drop rate, one group increased it to <span class="pasted-text">56.9</span>%, and one decreased it to <span class="pasted-text">43.1</span>%</span><a class="headerlink" href="#fig-sim-blaze-trio" title="Permalink to this image">¶</a></p>
+</div>
+<p>There are <a class="reference internal" href="#fig-sim-blaze-trio"><span class="std std-ref">two distinct behaviours</span></a>. For players with unmodified drop rates, the Bayes factor usually stays above one and appears to shadow the <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> trajectory detailed earlier. For the two cheating players, the Bayes factor gradually drifts below one and in some cases gets below 1:1,000,000 odds of playing fair. There’s a bit of variation, though, as one of the fair players’ Bayes factors drifts downward toward the 1:1 odds range, and one of the cheaters manages roughly 1:1 odds of fair play during the entire session. There are also times where the cheating players have Bayes factors that suggest fair play, those these usually only happen during the first rounds.</p>
+<p>Interestingly, the cheater that reduced their odds of a Blaze rod drop seems to have fared worse than the player that boosted their Blaze rod drops. One explanation is that while the Negative Binomial may be treated the same as the Binomial in the long run, always stopping on a positive will skew the results in the short term.</p>
+</div>
+</div>
+<div class="section" id="cheating-techniques">
+<span id="sec-cheating-techniques"></span><h2>Cheating Techniques<a class="headerlink" href="#cheating-techniques" title="Permalink to this headline">¶</a></h2>
+<p>Why would a cheater want to reduce the number of Blaze rods they collect? Put yourself behind their keyboard. They know that the odds of being detected are high if they simply increase their drop rate. Someone watching the stream will get suspicious, count up Blaze rods, and alert others.</p>
+<p>A big-brained alternative is to <em>temporarily</em> elevate the drop rate. We’re used to thinking of people getting lucky from time to time, so a short run of unusually good luck might pass under the radar. Even if it doesn’t, the cheater has a plausible excuse. They can train during the sessions with the fair drop rate, and only start cheating when they’re skilled enough to earn a record.</p>
+<p>One problem: for them, it will always be true that <span class="math notranslate nohighlight">\(\|\vec k\|_1 &gt; r_\text{fair}\|\vec n\|_1\)</span>. No one may be able to detect their cheating in the short term, but a career-long analysis will show an elevated success rate relative to non-cheating players. The more times this cheater temporarily boosts their luck, the greater the evidence they’ve done exactly that.</p>
+<p>A galaxy-brained move is to alternate between short periods of elevated drop rates and long periods of <em>deflated</em> drop rates. The PE report considers multiple “boost rates” for Ender pearl barters, but never considers deflated rates. The MST report states that apparently elevated drop rates made the speedrunning community suspicious of Dream (pg. 3), and that any runner “observed experiencing such unlikely events would be held to the same level of scrutiny” (pg. 4); the flip side is that any runner experiencing an unusually low number of drops would not. This blind spot of the speedrunning community could be exploited: by altering their drop rate both up and down, a cheating speedrunner can ensure their career stats do not reveal evidence of cheating.</p>
+<p>Greatly reducing their drop rate creates a large handicap to overcome, even if it does mean they can punch the “cheat” button pretty often. Instead, long periods of slightly-decreased luck would reduce the handicap and allow the cheater to exploit unusually good luck during their grind times. Should one of their elevated periods raise suspicion, not only can they pull out the “I got lucky” excuse, they can also point to a specific period of prior attempts and argue that, when taken as a whole, all the evidence demonstrates their drop rate is normal. The PE report analyzed the six attempts the MST report did for evidence of elevated drop rates, as well as those six plus five attempts Dream catalogued, but never considered analyzing those five attempts in isolation.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">One or Two tails?</p>
+<p><a class="reference internal" href="critique_of_reports.html#sec-p-value-misunderstood"><span class="std std-ref">P-values are Not What You Think</span></a> mentioned that p-values have a problem with the definition of “extreme.” Say I assert that a coin is biased by being more likely to come up heads than tails. I toss the coin, and get far more tails than heads. Depending on where you place the emphasis, I’ve either proven my assertion to be correct or incorrect. Worse, since the line for “extreme” is further from the centre with a two-tailed test verses a one-tailed test, researchers have a bit of “tilt” to shift values near that line to the side of their choosing. Worse still, there are no unambiguous standards for which type of p-value to use.<a class="bibtex reference internal" href="zzz_bibliography.html#doi-10-3102-0013189x020009013" id="id1">[Pil91]</a></p>
+</div>
+<p>To be clear, I’m not accusing Dream of either type of cheating. I’ve deliberately avoided doing the appropriate analysis before writing this text, in fact. When analyzing both reports for flaws, though, this oversight is easy to spot. It is also easy to detect, once you know what to look for, and the Bayes factor I’ve created is sensitive to both increased and decreased drop rates. An analysis that uses p-values might also be able to detect this if a “two-tailed” p-value is used, but the MST report opted to use a “one-tailed” p-value instead.</p>
+</div>
+<div class="section" id="ender-pearl-barters">
+<span id="sec-ender-pearl-barters"></span><h2>Ender Pearl Barters<a class="headerlink" href="#ender-pearl-barters" title="Permalink to this headline">¶</a></h2>
+<p>This analysis has focused on Blaze rods drops because they are so easy to understand. They can be directly analogized to the flip of a coin, and quite clearly follow a Negative Binomial, so the choice of simulation is very clear. None of the above math assumed a fifty-fifty success rate, nor whether the numbers were better modelled by the Negative Binomial or Binomial distributions. It should work flawlessly with Ender pearl barters.</p>
+<p>Our simulation, on the other hand, must choose between the Negative Binomial or Binomial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing the data files? Uncommenting and running this cell might retrieve them</span>
+<span class="c1"># !mkdir data</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.benex.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.dream_before.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.dream_after.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.illumina.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.sizzler.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.vadikus007.tsv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a blank dataframe to ensure the proper format</span>
+<span class="n">all_pearl_barters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;n&#39;</span><span class="p">:[],</span> <span class="s1">&#39;k&#39;</span><span class="p">:[]}</span> <span class="p">)</span>
+
+
+<span class="c1"># the Blaze rod stats have slightly different names</span>
+<span class="n">pearl_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream_before&#39;</span><span class="p">,</span><span class="s1">&#39;dream_after&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
+
+<span class="c1"># load in the data</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pearl_players</span><span class="p">:</span>
+    <span class="n">all_pearl_barters</span> <span class="o">=</span> <span class="n">all_pearl_barters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/bartering.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+  
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># pull out all the unique values for the X axis</span>
+<span class="n">pearl_k</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span> <span class="n">pearl_k</span><span class="p">,</span> <span class="p">[</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">][</span> <span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span> <span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">pearl_k</span><span class="p">],</span> \
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ender pearl barters&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;successful barters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;number of runs where k barters were successful&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:ender_pearl_barter&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-ender-pearl-barter">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_13_0.png" src="_images/sim_results_13_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The number of Ender pearl barters performed during a speedrun, according to the Minecraft Speeedrunning Team.</span><a class="headerlink" href="#fig-ender-pearl-barter" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <a class="reference internal" href="critique_of_reports.html#sec-nbinom-overuse"><span class="std std-ref">Overuse of the Negative Binomial</span></a>, I gave a theoretical argument for why Ender pearl barters may not follow a Negative Binomial distribution. Now we have <a class="reference internal" href="#fig-ender-pearl-barter"><span class="std std-ref">an empirical argument</span></a>. Bartering with Piglins is supposed to be the primary way to earn Ender pearls in a random-seed any-percent Minecraft 1.16 speedrun, and yet most speed runners earned zero Ender pearls via this method?</p>
+<p>The easiest explanation is that few of the runs in the MST report were successful. Players usually target a specific number of Ender pearls, but barters drop anywhere from four to eight pearls. Assuming uniform odds, two Ender pearl barters have a 60% chance of giving twelve or more pearls, and as long as none of the resulting Eyes of Ender break while finding the Stronghold the runner can immediately go to The End. Half the time, it takes anywhere from two to thirty-five barters for a speed runner to earn two Ender pearl barters. Conversely, this means that half the time a player will have to wait longer than three and a half minutes to earn those barters, a serious problem if you are on the clock. If we assume that Minecraft 1.16 runners always target two barters, then only a quarter of all speed runs are successful. If players only stop bartering if they are out of time or earn those two barters, then that success rate implies they budget for twenty barters, which requires exactly two minutes to complete, and abort if they fail to hit that target.</p>
+<p>Of course, that assumes quite a bit. Endermen have a fifty-fifty chance of dropping an Ender pearl when killed. While they rarely spawn in most Minecraft biomes, one notable exception is Nether Warped forest. A player that happens to stumble on such a biome can use that instead to gather Ender pearls. Barters also require gold ingots, so it is also possible for a speed runner to abort if they run out of gold instead of time. Theoretically, it’s also possible to get to The End with just one Ender pearl barter. There’s a 20% chance of getting eight Ender pearls at once and a 50% chance of picking up two more via killing two to three Enderman, which gives the runner a 25% chance of jumping immediately to The End once they’ve found the Stronghold. The overall odds of that happening are about 2.5%, but a speedrunner may prefer the extra practice instead of aborting immediately.</p>
+<p>Nonetheless, this gives us a prediction: if time or gold is more likely to be the stopping criteria than the number of successful Ender pearl barters, and both are correlated to <span class="math notranslate nohighlight">\(n\)</span> rather than <span class="math notranslate nohighlight">\(k\)</span>, then charting the data with <span class="math notranslate nohighlight">\(n\)</span> on the X axis should reveal a cutoff value for <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_pearl</span> <span class="o">=</span> <span class="mi">20</span><span class="o">/</span><span class="mi">423</span>
+
+<span class="c1"># pull out all the unique values</span>
+<span class="n">pearl_n</span> <span class="o">=</span> <span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">x</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span> <span class="n">pearl_n</span> <span class="p">)))</span>
+
+<span class="c1"># separate these so we can scale the negative binomial appropriately</span>
+<span class="n">pearl_y</span>   <span class="o">=</span> <span class="p">[</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">][</span> \
+                                    <span class="p">(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> \
+             <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">pearl_n</span><span class="p">]</span>
+<span class="n">nbinom2_y</span> <span class="o">=</span> <span class="n">nbinom</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r_pearl</span> <span class="p">)</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">nbinom2_y</span> <span class="o">=</span> <span class="n">nbinom2_y</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">nbinom2_y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pearl_y</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span> <span class="n">pearl_n</span><span class="p">,</span> <span class="n">pearl_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ender pearl barters&#39;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nbinom2_y</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Negative Binomial, k=2&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of barters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;number of runs with n barters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:barters&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-barters">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_15_0.png" src="_images/sim_results_15_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">The number of barters performed during a speedrun, for sessions that had zero to two successful barters, according to the Minecraft Speeedrunning Team.</span><a class="headerlink" href="#fig-barters" title="Permalink to this image">¶</a></p>
+</div>
+<p>The data does show a bit of a cliff at the <span class="math notranslate nohighlight">\(n = 20\)</span> mark, but it’s more of a mesa with tonnes of debris at the base. There isn’t a hard stopping time, it looks more like players trail off after that time. There’s also an unusual number of runs that end around <span class="math notranslate nohighlight">\(n = 10\)</span>, much more than we’d expect from a Negative Binomial, and an unusual lack of runs in the teens. This might be due to where players decide to stop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_pearl</span> <span class="o">=</span> <span class="mi">20</span><span class="o">/</span><span class="mi">423</span>
+
+<span class="n">x</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">axs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    
+    <span class="c1"># we only care about a specific k</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span>
+    <span class="n">pearl_x</span> <span class="o">=</span> <span class="n">all_pearl_barters</span><span class="p">[</span> <span class="n">mask</span> <span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">pearl_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_pearl_barters</span><span class="p">[</span> <span class="n">mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">pearl_x</span><span class="p">]</span>
+    
+    <span class="c1"># colour helps separate these</span>
+    <span class="n">colour</span>    <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">colour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="o">.</span><span class="mi">6</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span> <span class="n">pearl_x</span><span class="p">,</span> <span class="n">pearl_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colour</span> <span class="p">)</span>
+    
+    <span class="c1"># add the negative binomial</span>
+    <span class="n">nbinom_y</span> <span class="o">=</span> <span class="n">nbinom</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">r_pearl</span><span class="p">)</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">nbinom_y</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">nbinom_y</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pearl_y</span><span class="p">),</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span> <span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># we only need one label</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span> <span class="s1">&#39;frequency&#39;</span> <span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span> <span class="s1">&#39;number of barters in a run&#39;</span> <span class="p">)</span>
+
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:barters_by_k&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-barters-by-k">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_17_0.png" src="_images/sim_results_17_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">The number of barters performed during a speedrun, for sessions that had zero to two successful barters, according to the Minecraft Speeedrunning Team. Each count of successful barters is plotted separately.</span><a class="headerlink" href="#fig-barters-by-k" title="Permalink to this image">¶</a></p>
+</div>
+<p>The number of barters differs significantly for speedrunners that had zero Ender pearl barters. This makes sense if they are time or resource limited, as the odds of getting two successful barters before the limit is reached diminishes with each barter performed. Interestingly, the distribution bears a vague resemblance to <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">the Exponential</a>, implying that speedrunners have a fixed probability of quitting after each barter. The resemblance is not perfect, though, as the peak number of barters is <span class="math notranslate nohighlight">\(n = 4\)</span> instead of <span class="math notranslate nohighlight">\(n = 1\)</span>, the latter being what we expect from the Exponential distribution. This suggests speedrunners wait a few barters to see if they’ll earn any Ender pearls before considering dropping out. A better strategy would be to calculate when the probability of earning two pearl barters before running out of time or gold drops below a threshold and always bartering until that point, which gives a very different distribution.</p>
+<p>The distributions for <span class="math notranslate nohighlight">\(k = 1\)</span> and <span class="math notranslate nohighlight">\(k = 2\)</span> are remarkably similar, though the former peaks earlier. This is more in line with the improved strategy outlined above, with further evidence coming from the lack of runs for <span class="math notranslate nohighlight">\(k = 1\)</span> and <span class="math notranslate nohighlight">\(8 \le n \le 16\)</span>. There are not a lot of datapoints to work from, however, so these could be false patterns.</p>
+<p>Our simulation for Ender pearl barters must take as much of the above into account as possible. I propose the following:</p>
+<ol class="simple">
+<li><p>Draw a maximum number of barters to perform, <span class="math notranslate nohighlight">\(n_\text{max}\)</span>, from the observed distribution of <span class="math notranslate nohighlight">\(n\)</span> for <span class="math notranslate nohighlight">\(k &lt; 3\)</span>.</p></li>
+<li><p>Draw a number of successful barters, <span class="math notranslate nohighlight">\(k_\text{max}\)</span>, from <span class="math notranslate nohighlight">\(\text{Binom}( n_\text{max}, r )\)</span>, where <span class="math notranslate nohighlight">\(r \in \{r_\text{fair}, r_\text{cheat} \}\)</span>.</p></li>
+<li><p>Draw a number of barters to perform, <span class="math notranslate nohighlight">\(n_\text{success}\)</span>, from <span class="math notranslate nohighlight">\(\text{NegBinom}( 2, r )\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(n_\text{success} &lt; n_\text{max}\)</span>, use <span class="math notranslate nohighlight">\((n_\text{success}, 2)\)</span> as the results of this run. Otherwise, use <span class="math notranslate nohighlight">\((n_\text{max}, k_\text{max}).\)</span></p></li>
+</ol>
+<p>Notice that <span class="math notranslate nohighlight">\(k\)</span> is never checked, so <span class="math notranslate nohighlight">\(k_\text{max} &gt; 2\)</span> is possible. This is a better match for the observed data, as sometimes speedrunners do have more than two Ender pearl barters per run. For the cheating player, we will use <span class="math notranslate nohighlight">\(r_\text{cheat} \approx {}\)</span> <span class="pasted-text">6.383</span>%. All values besides <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> are identical with the previous simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+
+<span class="n">r_fair</span>    <span class="o">=</span> <span class="mi">20</span><span class="o">/</span><span class="mi">423</span> <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_pearl_r_fair&#39;</span><span class="p">,</span> <span class="n">r_fair</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">r_cheat_h</span> <span class="o">=</span> <span class="mi">27</span><span class="o">/</span><span class="mi">423</span> <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_pearl_r_cheat_h&#39;</span><span class="p">,</span> <span class="n">r_cheat_h</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">count</span>     <span class="o">=</span> <span class="mi">200</span>   <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_pearl_count&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">clones</span>    <span class="o">=</span> <span class="mi">16</span>    <span class="p">;</span> <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;sim_pearl_clones&#39;</span><span class="p">,</span> <span class="n">clones</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span>   <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># set up n_max</span>
+<span class="n">choices_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">all_pearl_barters</span><span class="p">[</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span> <span class="p">)</span>
+<span class="n">weights_n</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_pearl_barters</span><span class="p">[(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_pearl_barters</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> \
+              <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">choices_n</span><span class="p">]</span>
+<span class="n">weights_n</span> <span class="o">=</span> <span class="n">weights_n</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights_n</span><span class="p">)</span>
+
+<span class="c1"># draw n_max, k_max, and n_success for the cheater</span>
+<span class="n">vec_cheat_n_binom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="n">choices_n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">weights_n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">clones</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">vec_cheat_k_binom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span> <span class="n">vec_cheat_n_binom</span><span class="p">,</span> <span class="n">r_cheat_h</span> <span class="p">)</span>
+<span class="n">vec_cheat_n_nbinom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r_cheat_h</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">clones</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="c1"># merge the two via vectorization</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">vec_cheat_n_nbinom</span> <span class="o">&lt;</span> <span class="n">vec_cheat_n_binom</span>
+<span class="n">vec_cheat_k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mask</span> <span class="o">+</span> <span class="n">vec_cheat_k_binom</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">vec_cheat_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span> <span class="n">vec_cheat_n_nbinom</span><span class="p">,</span> <span class="n">vec_cheat_n_binom</span> <span class="p">)</span>
+
+<span class="c1"># wash-rinse-repeat for the fair player</span>
+<span class="n">vec_fair_n_binom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span> <span class="n">choices_n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">weights_n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">clones</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">vec_fair_k_binom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span> <span class="n">vec_fair_n_binom</span><span class="p">,</span> <span class="n">r_fair</span> <span class="p">)</span>
+<span class="n">vec_fair_n_nbinom</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">clones</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">vec_fair_n_nbinom</span> <span class="o">&lt;</span> <span class="n">vec_fair_n_binom</span>
+<span class="n">vec_fair_k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mask</span> <span class="o">+</span> <span class="n">vec_fair_k_binom</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">vec_fair_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span> <span class="n">vec_fair_n_nbinom</span><span class="p">,</span> <span class="n">vec_fair_n_binom</span> <span class="p">)</span>
+
+<span class="c1"># calculate cumulative sums</span>
+<span class="n">sum_fair_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">vec_fair_k</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_fair_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">vec_fair_n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_cheat_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">vec_cheat_k</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+<span class="n">sum_cheat_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">vec_cheat_n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clones</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_cheat_k</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_cheat_n</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;cheater (r=</span><span class="si">{</span><span class="n">r_cheat_h</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_fair_k</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_fair_n</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;fair (r=</span><span class="si">{</span><span class="n">r_fair</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;--g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;break even&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rounds&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="n">count</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;H_fair / H_cheat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:sim_pearl_duo&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-sim-pearl-duo">
+<div class="cell_output docutils container">
+<img alt="_images/sim_results_19_4.png" src="_images/sim_results_19_4.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">The behaviour of this Bayes Factor for <span class="pasted-text">16</span> clones of a player who modified their Ender pearl barter rate to be <span class="math notranslate nohighlight">\(r_\text{cheat} \approx {}\)</span> <span class="pasted-text">6.383</span>%, versus clones of a player who has not (<span class="math notranslate nohighlight">\(r_\text{fair} \approx {}\)</span> <span class="pasted-text">4.728</span>%).</span><a class="headerlink" href="#fig-sim-pearl-duo" title="Permalink to this image">¶</a></p>
+</div>
+<p>The <a class="reference internal" href="#fig-sim-pearl-duo"><span class="std std-ref">resulting simulation</span></a> has a number of interesting properties. The cheater shows a similar descent to <a class="reference internal" href="#fig-sim-blaze-trio"><span class="std std-ref">the previous figure</span></a>, and yet as a proportion the level of cheating is more blatant. This is likely due to a combination of two things. Intuitively, it seems obvious that the rate of rare events would be more difficult to estimate than more common ones. As a consequence, though, it must also be difficult to estimate the frequency of <em>very common</em> events; if it was not, then we could switch from tracking when rare events do occur to when they do <em>not</em> and achieve a better estimate. This implies that the easiest event rate to track is neither common nor rare, when the rate of the event occurring matches the rate of it not occurring. That is <span class="math notranslate nohighlight">\(r = \frac 1 2\)</span>, the rate of Blaze rod drops, so by this argument the lower rate of Ender pearl barters must make them more difficult to estimate. This intuition can be placed on firmer ground <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_entropy_function">via Information theory</a>.</p>
+<p>It also should be noted that my prior for Ender pearl barters is fairly strong. My scale 4 prior for Blaze rod drops is mathematically equivalent to a Bayes/Laplace prior with six “phantom” observations added that precisely match the expected drop rate. The scale 4 prior for Ender pearl drops is equivalent to Bayes/Laplace with three successful Ender pearl drops observed and slightly more than 81 failed attempts. With so many phantom observations, overcoming the latter prior’s weight requires either many more observations or a greater level of bias.</p>
+<p>Another interesting property is that the fair player no longer follows the <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> rule, and in fact their Bayes factors show a gradual decline over time. You might have assumed that since this simulation was the combination of Negative Binomial and Binomial distributions with the same rate, and the math showed that this Bayes factor worked equally well on both distributions, it should have worked for our simulation. In reality, the way we combined the two distributions together created a subtle bias in the underlying success rate, skewing it from <span class="math notranslate nohighlight">\(\frac{20}{423}\)</span>. The PE report was right to worry about this possibility, even if got the details wrong.</p>
+<p>At the same time, the behaviour of the cheater and fair player are clearly different. A skew may be present, but it is much smaller than the difference between the cheating and fair rate. This shows that a flawed model can still be useful if it sufficiently close to reality, and if its flaws can be bounded. This is another reminder of why control groups and validation are so important.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="methodology.html" title="previous page">Methodology</a>
+    <a class='right-next' id="next-link" href="data_results.html" title="next page">Real-World Results</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By hjhornbeck<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

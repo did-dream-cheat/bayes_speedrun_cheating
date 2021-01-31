@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-World Results &#8212; Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conclusion" href="conclusion.html" />
+    <link rel="prev" title="Simulation Results" href="sim_results.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="executive_summary.html">
+   Executive Summary
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="critique_of_reports.html">
+   A Critique of the Reports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="methodology.html">
+   Methodology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sim_results.html">
+   Simulation Results
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Real-World Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="future_work.html">
+   Future Work
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zzz_bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/data_results.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hjhornbeck/bayes_speedrun_cheating/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hjhornbeck/bayes_speedrun_cheating/master?urlpath=tree/data_results.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blaze-rod-drops">
+   Blaze Rod Drops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ender-pearl-barters">
+   Ender Pearl Barters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-both-datasets">
+   Combining Both Datasets
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="real-world-results">
+<h1>Real-World Results<a class="headerlink" href="#real-world-results" title="Permalink to this headline">¶</a></h1>
+<p>With the above analysis in place, we’re ready to look at real world data.</p>
+<div class="section" id="blaze-rod-drops">
+<span id="sec-data-blaze"></span><h2>Blaze Rod Drops<a class="headerlink" href="#blaze-rod-drops" title="Permalink to this headline">¶</a></h2>
+<p>We will begin with the Blaze rod data. The MST report <a class="reference external" href="https://docs.google.com/spreadsheets/d/1P58S94yKB3Bm4A4_VotWyeelk_PvaTE1nDZx9DalEyk/view">gathered data</a> for five distinct random-seed any-percent Minecraft 1.16 speedrunners: Benex, Dream, Illumina, Sizzler, and Vadikus007.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell to install all dependencies locally</span>
+<span class="o">!</span>pip -q install --user mpmath myst_nb numpy pandas matplotlib scipy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span><span class="n">factorial</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpmath</span> <span class="kn">import</span> <span class="n">mp</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">differential_evolution</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span><span class="p">,</span><span class="n">binom</span><span class="p">,</span><span class="n">nbinom</span>
+
+
+<span class="n">dpi</span>         <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># change this to increase/decrease the resolution charts are made at</span>
+<span class="n">book_output</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># changing this to False will make it easier to view plots in a Jupyter notebook</span>
+
+<span class="k">def</span> <span class="nf">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="n">name</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A helper to control how we&#39;re displaying figures.&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">book_output</span>
+    
+    <span class="k">if</span> <span class="n">book_output</span><span class="p">:</span>
+        <span class="n">glue</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing &quot;simple_bernoulli_bf.py&quot;? Uncomment this line to grab it from the repository</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/simple_bernoulli_bf.py&quot;</span>
+
+<span class="kn">from</span> <span class="nn">simple_bernoulli_bf</span> <span class="kn">import</span> <span class="n">prior</span><span class="p">,</span> <span class="n">posterior_H_fair</span><span class="p">,</span> <span class="n">BF_H_fair_H_cheat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing the data files? Uncommenting and running this cell might retrieve them</span>
+<span class="c1"># !mkdir data</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.benex.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.dream.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.illumina.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.sizzler.tsv&quot;</span>
+<span class="c1"># !wget -P data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.vadikus007.tsv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>  <span class="c1"># makes colouring some of the following easier</span>
+
+<span class="n">blaze_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
+<span class="n">pearl_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream_before&#39;</span><span class="p">,</span><span class="s1">&#39;dream_after&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
+
+<span class="n">blaze_rods</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/blaze.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">blaze_players</span><span class="p">}</span>
+
+<span class="n">blaze_rods</span><span class="p">[</span><span class="s1">&#39;dream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>n</th>
+      <th>12</th>
+      <th>11</th>
+      <th>16</th>
+      <th>10</th>
+      <th>13</th>
+      <th>11</th>
+      <th>5</th>
+      <th>4</th>
+      <th>1</th>
+      <th>14</th>
+      <th>...</th>
+      <th>9</th>
+      <th>10</th>
+      <th>15</th>
+      <th>10</th>
+      <th>15</th>
+      <th>11</th>
+      <th>9</th>
+      <th>10</th>
+      <th>9</th>
+      <th>9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>k</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>7</td>
+      <td>8</td>
+      <td>8</td>
+      <td>5</td>
+      <td>3</td>
+      <td>1</td>
+      <td>8</td>
+      <td>...</td>
+      <td>8</td>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 33 columns</p>
+</div></div></div>
+</div>
+<p>We’ll use the same charts as with the simulation, where the Bayes factor is updated as new data is added. This responds to a critique of the PE report: if the same trend is observed regardless of whether or not the last datapoint is dropped, we can be reasonably confident it was not an artifact of our stopping point.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Against Weak Priors</p>
+<p>Why don’t we automatically choose the weakest prior? One reason is that the data usually exhibits some random variance, and it’s possible that the small bit of data we’re looking at happens to be an outlier. A strong prior will have more “inertia” than a weaker one, and therefore be more resilient to outliers. If the data is genuinely outside of where the prior expects, it should tug the posterior into place if we keep piling on the data.</p>
+</div>
+<p>As promised, we will determine the influence of the prior by varying the scale parameter. My preferred value of 4 will be scaled by values ranging between <span class="math notranslate nohighlight">\(\frac 1 3\)</span> and 3. The higher multiplier will “tug” the posterior towards the default hypothesis, while the lower gives the data more power to shape the posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># only the two extremes need to be explicitly calculated</span>
+<span class="n">priors</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">scale</span> <span class="p">)</span> <span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">max_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># note the largest number of runs by a player</span>
+<span class="n">xtics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># we&#39;d like some fancy X-axis ticks</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">blaze_players</span><span class="p">):</span>
+    
+    <span class="c1"># update the above variables</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+        <span class="n">max_count</span> <span class="o">=</span> <span class="n">count</span>
+    <span class="n">xtics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span>
+       
+    <span class="n">x</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="n">y_low</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">y_hig</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="c1"># build the fancy ticks</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span> <span class="n">max_count</span> <span class="p">)</span>
+<span class="n">xtics</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xtics</span><span class="p">]</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xtics</span> <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">max_count</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">max_count</span><span class="p">]</span> <span class="p">)</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;break even&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="n">xtics</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;H_fair / H_cheat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:data_blaze&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-data-blaze">
+<div class="cell_output docutils container">
+<img alt="_images/data_results_7_0.png" src="_images/data_results_7_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">The behaviour of this Bayes Factor for the Blaze rod drops of serveral Minecraft 1.16 speedrunners, using data from the MST report.</span><a class="headerlink" href="#fig-data-blaze" title="Permalink to this image">¶</a></p>
+</div>
+<p>The Bayes factor for Dream’s Blaze rod drop rate <a class="reference internal" href="#fig-data-blaze"><span class="std std-ref">behaves differently</span></a> from other Minecraft speedrunners. It drops like the cheating players from <a class="reference internal" href="sim_results.html#fig-sim-blaze-trio"><span class="std std-ref">the Blaze rod simulation</span></a>, but at a much sharper rate. Removing the last datapoint does not impact that trend. There is evidence the Bayes factor of two other runners are curving back towards the 1:1 odds line, but that’s still consistent with random fluctuations due to normal gameplay.  It might also indicate Blaze rods do not follow the Binomial or Negative Binomial distributions, but we’d need quite a bit more data to be sure.</p>
+<p>The choice of prior doesn’t have a significant impact, but it should be noted the log scaling downplays the difference between the priors. The Bayes factor for Dream’s round thirty-three using the scale 4 prior is half the size of the BF for the scale 12 prior, for instance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span>         <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sum_n</span>          <span class="o">=</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="s1">&#39;dream&#39;</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">sum_k</span>          <span class="o">=</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="s1">&#39;dream&#39;</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">dream_blaze_bf</span> <span class="o">=</span> <span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;The Bayes factor for Dream&#39;s Blaze rod rate, over all his rounds and with the scale 4 prior,&quot;</span> <span class="o">+</span> \
+       <span class="sa">f</span><span class="s2">&quot; is about </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_blaze_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2"> or 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_blaze_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Bayes factor for Dream&#39;s Blaze rod rate, over all his rounds and with the scale 4 prior, is about 0.000101 or 1:9,930.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting Bayes factor is roughly equivalent to the average golfer <a class="reference external" href="https://www.pga.com/archive/odds-hole-in-one-albatross-condor">landing a hole in one</a> on their next shot. In comparison, the equivalent p-value in the MST report is <span class="math notranslate nohighlight">\(4.72 \times 10^{-11}\)</span>. Setting aside the different interpretations of both numbers, that’s a difference of seven orders of magnitude. This seems to bear out <a class="reference internal" href="critique_of_reports.html#sec-missing-context"><span class="std std-ref">the assertion</span></a> that Bayesian statistics is inherently more sluggish to respond to the evidence.</p>
+<p>The PE report puts the probability of fair play at <span class="math notranslate nohighlight">\(3 \times 10^{-8},\)</span> however. Why do two Bayesian analyses come to two very different results? The PE report analyzed Dream’s drop rate by calculating a grid of probabilities ranging from <span class="math notranslate nohighlight">\(\frac 1 2\)</span> to <span class="math notranslate nohighlight">\(\frac 9 {10}\)</span>, then taking the result for <span class="math notranslate nohighlight">\(r_\text{blaze} = \frac 1 2\)</span> as the probability of fair play (pg. 10). This is analogous to <a class="reference internal" href="methodology.html#sec-defining-fairness"><span class="std std-ref">the idealized dart board</span></a>, which by necessity will lead to more extreme values. By integrating over an area, my definition of both <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> and <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> account for the random fluctuations we would expect from random data, which necessarily waters down the probabilities of each. The PE report also does not factor in the probability of <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>. If that hypothesis is unlikely, then the relative likelihood of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> is boosted proportionately.</p>
+<p>As nice as <a class="reference internal" href="#fig-data-blaze"><span class="std std-ref">the Bayes factor chart</span></a> is, it only tells us the relative probabilities of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> to <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>. It gives no indication of what the most credible drop rate was. We can derive that by charting the posteriors for each player and noting the mean values. I’ll again vary the prior to observe how the posterior changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">dream_mean</span> <span class="o">=</span> <span class="mi">0</span> 
+
+<span class="c1"># we can&#39;t get away with just doing the extremes. Instead, spam priors!</span>
+<span class="n">priors</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">scale</span> <span class="p">)</span> <span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="mi">32</span> <span class="p">))]</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="n">x_limits</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">*</span><span class="n">x_limits</span><span class="p">,</span> <span class="mi">512</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">blaze_players</span><span class="p">):</span>
+
+    <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="n">pr</span> <span class="ow">in</span> <span class="n">priors</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="c1"># plot the mean</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span> <span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream&#39;</span><span class="p">:</span>
+        <span class="n">dream_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span> <span class="n">x_limits</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span> <span class="p">[</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">55</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">dream_mean</span><span class="p">),</span> <span class="o">.</span><span class="mi">8</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:data_blaze_pos&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-data-blaze-pos">
+<div class="cell_output docutils container">
+<img alt="_images/data_results_11_0.png" src="_images/data_results_11_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The posterior distribution for the Blaze rod drops of several Minecraft 1.16 speedrunners, using data from the MST report. Vertical lines represent the mean of the posterior with the scale 4 prior.”,</span><a class="headerlink" href="#fig-data-blaze-pos" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-data-blaze-pos"><span class="std std-ref">The posterior distributions</span></a> of other Minecraft players cluster on the generous side of 50:50 odds. Sizzler is the largest outlier, with the mean of his posterior approaching 55%, but even in their case a substantial amount of credence is present for <span class="math notranslate nohighlight">\(r_\text{blaze} \le \frac 1 2\)</span>. Dream again stands alone, with the posterior’s mean drop rate above <span class="math notranslate nohighlight">\(\frac 2 3\)</span> and almost no credence around <span class="math notranslate nohighlight">\(\frac 1 2\)</span>. This is similar to the PE report’s estimate of “around 0.7” (pg. 10). Strengthening the prior clusters the credence more tightly around <span class="math notranslate nohighlight">\(r_\text{blaze} = \frac 1 2\)</span>, but there is sufficient data to make the effect subtle at best.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span>           <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sum_n</span>            <span class="o">=</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="s1">&#39;dream&#39;</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">sum_k</span>            <span class="o">=</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="s1">&#39;dream&#39;</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">025</span><span class="p">,</span> <span class="o">.</span><span class="mi">16</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">84</span><span class="p">,</span> <span class="o">.</span><span class="mi">975</span><span class="p">]</span>
+<span class="n">intervals</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span> <span class="n">bounds</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_blaze_intervals_low&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_blaze_intervals_high&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;interval_width&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">-</span><span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Given the above data and prior, about two-thirds of our credence for Dream&#39;s Blaze rod rate</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+      <span class="sa">f</span><span class="s2">&quot;  is in the interval [</span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">], while about 95% is between &quot;</span> <span class="o">+</span> \
+      <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">]. The median is roughly </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Given the above data and prior, about two-thirds of our credence for Dream&#39;s Blaze rod rate
+  is in the interval [0.661, 0.713], while about 95% is between [0.635, 0.737]. The median is roughly 0.687.
+</pre></div>
+</div>
+</div>
+</div>
+<p>When estimating a parameter, it’s quite common to generate confidence or credible intervals for it. Those can reiterate some of the problems of p-values, such as what the interval means or what counts as extreme,<a class="bibtex reference internal" href="zzz_bibliography.html#morey2016fallacy" id="id1">[MHR+16]</a> plus there is no hard and fast rule on how much credence should be contained within the interval. The traditional value of 95% can be sensitive to extreme data, so I prefer <span class="math notranslate nohighlight">\(\frac 2 3\)</span>. If you insist on some sort of credible interval calculation, then the <span class="pasted-text">10.3</span>% credible interval for Dream’s Blaze rod drop rate is [<span class="pasted-text">0.635</span>, <span class="pasted-text">0.737</span>].</p>
+</div>
+<div class="section" id="ender-pearl-barters">
+<span id="sec-data-pearl"></span><h2>Ender Pearl Barters<a class="headerlink" href="#ender-pearl-barters" title="Permalink to this headline">¶</a></h2>
+<p>We have two sources of data for Ender pearls. The MST report collected <a class="reference external" href="https://docs.google.com/spreadsheets/d/1NJTdZnkF10nw2tDIS5hZZx8KmC2PC6I71XGtzc5iXLE/view">bartering data</a> for five runners including Dream, and Dream himself provided <a class="reference external" href="https://drive.google.com/file/d/1EvxcvO4-guI73FH5pMUJ-zEHhV-L1yuJ/view">a spreadsheet</a> with more data. Accessing that spreadsheet requires giving Dream or a third party my Google account information, so I instead opted to use the data listed in Appendix A of the PE report. I’ve labelled this second source “dream_before”, as it covers a period before Dream took time off of Minecraft speed runs. The MST’s data on Dream is labelled “dream_after”, for similar reasons.</p>
+<p>This provides us with an easy way to consider which, if any, of <a class="reference internal" href="sim_results.html#sec-cheating-techniques"><span class="std std-ref">the above cheating scenarios</span></a> apply.</p>
+<ol class="simple">
+<li><p>If Dream cheated, and if he altered his barter rate from the start, we would expect the Bayes factor of both datasets to act like cheating players from the simulation and both posteriors to have little credence around <span class="math notranslate nohighlight">\(r_\text{blaze} = \frac{20}{423}\)</span>.</p></li>
+<li><p>If Dream cheated, but only after he took some time off, we would expect the BF of the “before” set to behave like any other Minecraft speedrunner while the BF of the “after” acts like a cheating player. The posteriors would, respectively, cluster around <span class="math notranslate nohighlight">\(\frac{20}{423}\)</span> and higher than it.</p></li>
+<li><p>If Dream cheated, but craftily reduced his barter rate to hide it, we would expect the BF of both datasets to act like cheating players. The posteriors would, respectively, cluster below <span class="math notranslate nohighlight">\(\frac{20}{423}\)</span> and above it.</p></li>
+</ol>
+<p>Scenario 1 has already been ruled out by the PE report, as it notes the additional data reduces the probability of Dream cheating (pg. 13).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bartering</span>  <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/bartering.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pearl_players</span><span class="p">}</span>
+    
+<span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>n</th>
+      <th>22</th>
+      <th>5</th>
+      <th>24</th>
+      <th>18</th>
+      <th>4</th>
+      <th>1</th>
+      <th>7</th>
+      <th>12</th>
+      <th>26</th>
+      <th>8</th>
+      <th>...</th>
+      <th>2</th>
+      <th>13</th>
+      <th>10</th>
+      <th>10</th>
+      <th>21</th>
+      <th>20</th>
+      <th>10</th>
+      <th>3</th>
+      <th>18</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>k</th>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+      <td>2</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 22 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">423</span><span class="p">)</span>
+<span class="n">priors</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">scale</span> <span class="p">)</span> <span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+
+<span class="c1"># same old, same old</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">max_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">xtics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pearl_players</span><span class="p">):</span>
+    
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+        <span class="n">max_count</span> <span class="o">=</span> <span class="n">count</span>
+    <span class="n">xtics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span>
+        
+    <span class="n">x</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="n">y_low</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">y_hig</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="c1"># build the fancy ticks</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span> <span class="n">max_count</span> <span class="p">)</span>
+<span class="n">xtics</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xtics</span><span class="p">]</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xtics</span> <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">max_count</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">xtics</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">max_count</span><span class="p">]</span> <span class="p">)</span>
+
+    
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;break even&#39;</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span> <span class="n">xtics</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;H_fair / H_cheat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:data_pearl&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="margin sidebar" id="fig-data-pearl">
+<p class="sidebar-title">fig:data_pearl</p>
+<p>The behaviour of this Bayes Factor for Ender pearl barters, from both reports.</p>
+</div>
+<p><a class="reference internal" href="#fig-data-pearl"><span class="std std-ref">This time</span></a> there’s less certainty. The same pattern is present, but only for Dream after he returned to random-seed any-percent Minecraft 1.16. The other speedrunners and Dream’s earlier runs behave more like fair players, and generally follow the <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> curve. Benex’s first six rounds do show a downward trajectory, but their later data restores the behaviour of a fair player. This provides mild evidence for Scenario 3 cheating, but the magnitudes involved are small enough that it can also be explained by unusually good luck. On the whole, for Dream, Scenario 2 is the most likely case.</p>
+<p>The choice of prior has a much stronger on the final outcome here than it did <a class="reference internal" href="#fig-data-blaze"><span class="std std-ref">before</span></a>, and the probabilities are about two orders of magnitude higher. <a class="reference internal" href="sim_results.html#fig-sim-pearl-duo"><span class="std std-ref">As mentioned</span></a>, the rarity of Ender pearl barters relative to Blaze rod drops makes their rate harder to estimate, and the stronger prior for barters gives it a greater influence over the posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_n</span>          <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">sum_k</span>          <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">dream_pearl_bf</span> <span class="o">=</span> <span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;The Bayes factor for Dream&#39;s post-break Ender pearl barters, over all his rounds and with the scale 4 prior,&quot;</span> <span class="o">+</span> \
+       <span class="sa">f</span><span class="s2">&quot; is </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_pearl_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">, or about 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_pearl_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Bayes factor for Dream&#39;s post-break Ender pearl barters, over all his rounds and with the scale 4 prior, is 0.00523, or about 1:191.
+</pre></div>
+</div>
+</div>
+</div>
+<p>With my scale 4 prior, the relative odds between <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> and <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> are about the odds of <a class="reference external" href="https://www.floridamuseum.ufl.edu/shark-attacks/odds/compare-risk/death/">a US citizen dying of an accidental poisoning</a>.  Alternatively, it’s <a class="reference external" href="https://web.archive.org/web/20190831140226/http://mattstiles.org/dailygraphics/graphics/birthday-frequency-us-heatmap-20160919/child.html?initialWidth=940&amp;childId=pym_0&amp;parentTitle=How%20Common%20is%20Your%20Birthday%3F%20This%20Visualization%20Might%20Surprise%20You%20%7C%20The%20Daily%20Viz&amp;parentUrl=http%3A%2F%2Fthedailyviz.com%2F2016%2F09%2F17%2Fhow-common-is-your-birthday-dailyviz%2F">more or less</a> the odds of being born sometime during the first two days of June. A rare occurrence, certainly, but not that rare.</p>
+<p>For comparison, the MST report put the p-value of this at <span class="math notranslate nohighlight">\(8.04 \times 10^{-7}\)</span>, which differs by five orders of magnitude. The PE report gives the probability of fair play at <span class="math notranslate nohighlight">\(3 \times 10^{-10}\)</span> (pg. 11), but that number uses the same methodology as was used for Blaze rods and so the same criticisms apply.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">dream_mean</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># store Dream&#39;s mean value here</span>
+<span class="n">dream_means</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="c1"># fill_between doesn&#39;t give good output here. Instead, spam priors!</span>
+<span class="n">priors</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="n">scale</span> <span class="p">)</span> <span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="mi">128</span> <span class="p">))]</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span> <span class="n">r_fair</span><span class="p">,</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">512</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pearl_players</span><span class="p">):</span>
+
+    <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="n">pr</span> <span class="ow">in</span> <span class="n">priors</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream_after&#39;</span><span class="p">:</span>
+            <span class="n">dream_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span> <span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream_after&#39;</span><span class="p">:</span>
+        <span class="n">dream_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">r_fair</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">dream_mean</span><span class="p">),</span> <span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;likelihood&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig_show</span><span class="p">(</span> <span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;fig:data_pearl_pos&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-data-pearl-pos">
+<div class="cell_output docutils container">
+<img alt="_images/data_results_21_0.png" src="_images/data_results_21_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The posterior distribution for the Ender pearl barters of several Minecraft 1.16 speedrunners, using data from both reports. Vertical lines represent the mean of the posterior for the scale 4 prior, and the effect of different priors is shown.</span><a class="headerlink" href="#fig-data-pearl-pos" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-data-pearl-pos"><span class="std std-ref">All but one sequence</span></a> hovers around the expected rate of Ender pearl barters. The posterior for Dream’s performance before his break favours lower barter rates than all other runners, providing a little support for Scenario 3, but a non-trivial amount of credence is greater than the expected barter rate. Overall, Scenario 2 remains more likely. Dream’s post-break performance again is quite different from other speedrunners and even his own pre-break performance, but this time prior strength is a major factor. Even with the strongest prior, though, very little credence for Dream’s post-break barters is around the unaltered rate.</p>
+<p>The mean value of Dream’s post-break performance is approximately three times larger than the expected rate, which again matches what the PE report observed (pg. 11).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_fair</span>           <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">423</span><span class="p">)</span>
+<span class="n">sum_n</span>            <span class="o">=</span> <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">sum_k</span>            <span class="o">=</span> <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">intervals</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span> <span class="n">bounds</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_pearl_intervals_low&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_pearl_intervals_high&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;r_pearl&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">r_fair</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Given the above data and prior, about two-thirds of our credence for Dream&#39;s Ender pearl barter rate</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+      <span class="sa">f</span><span class="s2">&quot;  is in the interval [</span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">], while about 95% is between &quot;</span> <span class="o">+</span> \
+      <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">]. The median is roughly </span><span class="si">{</span><span class="n">intervals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Given the above data and prior, about two-thirds of our credence for Dream&#39;s Ender pearl barter rate
+  is in the interval [0.115, 0.151], while about 95% is between [0.099, 0.170]. The median is roughly 0.132.
+</pre></div>
+</div>
+</div>
+</div>
+<p>A common heuristic is to see if the value we expect to see is contained within the interval, and invoke modus tollens if it is not. I do not endorse that, but if you disagree then I’ll simply note that the <span class="pasted-text">10.3</span>% credible interval is [<span class="pasted-text">0.0991</span>, <span class="pasted-text">0.1703</span>], which does not include the unaltered Ender pearl barter rate of <span class="pasted-text">0.0473</span>%.</p>
+</div>
+<div class="section" id="combining-both-datasets">
+<span id="sec-both-datasets"></span><h2>Combining Both Datasets<a class="headerlink" href="#combining-both-datasets" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="methodology.html#sec-defining-cheating"><span class="std std-ref">As mentioned earlier</span></a>, Bayes factors are likelihoods and can thus be multiplied together. This allows us to generate a combined odds ratio for both datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dream_combo_bf</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">fmul</span><span class="p">(</span> <span class="n">dream_blaze_bf</span><span class="p">,</span> <span class="n">dream_pearl_bf</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;The Bayes factor for both rates, over all of Dream&#39;s post-break rounds and with the scale 4 prior,&quot;</span> <span class="o">+</span> \
+       <span class="sa">f</span><span class="s2">&quot; is </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_combo_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">, or about 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_combo_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Bayes factor for both rates, over all of Dream&#39;s post-break rounds and with the scale 4 prior, is 5.27e-7, or about 1:1,899,071.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The combined Bayes factor is quite low. To take an example, the median age of a Canadian in 2019 was <a class="reference external" href="https://www150.statcan.gc.ca/n1/daily-quotidien/190930/dq190930a-eng.htm">about 41 years old</a>. If we examine <a class="reference external" href="https://www150.statcan.gc.ca/n1/pub/84-537-x/2020001/xls/2017-2019_Tbl-eng.xlsx">the relevant mortuary tables</a> and extrapolate the odds of dying per year to the odds of dying per day, then we’d place four times more credence on a specific 41-year-old Canadian woman dying within 24 hours (about 1:472,632) than we would for <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> over <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>.</p>
+<p>As unlikely as that is, it’s still seven orders of magnitude higher than the MST report’s “loose upper bound” on Dream’s success, which they declare is “almost certainly an overestimate” (pg. 22). After applying multiple corrections, the PE report concludes “there is a 1 in 100 million chance that a livestream in the Minecraft speedrunning community got as lucky this year on two separate random modes as Dream did in these six streams” (pg. 16), a number which is just about two order of magnitudes lower than what I calculate. The differences are entirely due to statistical methodology.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sim_results.html" title="previous page">Simulation Results</a>
+    <a class='right-next' id="next-link" href="conclusion.html" title="next page">Conclusion</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By hjhornbeck<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
