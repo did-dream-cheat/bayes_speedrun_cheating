@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quick Intro &#8212; Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</title>
+    <title>README &#8212; Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process.</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -85,7 +85,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="executive_summary.html">
+  <a class="reference internal" href="index.html">
    Executive Summary
   </a>
  </li>
@@ -209,6 +209,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documents">
+   Documents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#actual-code">
+   Actual Code
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -216,21 +235,23 @@
         
               <div>
                 
-  <div class="section" id="quick-intro">
-<h1>Quick Intro<a class="headerlink" href="#quick-intro" title="Permalink to this headline">¶</a></h1>
-<p>From the report’s current Executive Summary:</p>
-<blockquote>
-<div><p>Two analyses I’ve read of Dream’s recent speedrunning performance have been flawed. I believe I can do better, and so I’ve done my own analysis. I point out a number of flaws with the two existing analysis, the most notable of which are the Minecraft Speedrunning Team’s reliance on p-values and Photoexcitation’s failure to mention that Bayesian methods are inherently less likely to conclude Dream cheated. I walk through the logic and mathematics behind my approach, which relies heavily on Bayesian statistics and conjugate priors. I implement said math in two Python routines, which allows anyone to easily run their own analysis, and put them to use with a more rigorous analysis of Dream’s performance than is in either report. This analysis is easily reproducible and can be applied outside of Minecraft speedrunning.</p>
-</div></blockquote>
-<blockquote>
-<div><p>Overall, I find the probability of Dream cheating to be much lower than the Minecraft Speedruning Team’s report, at least five orders of magnitude lower in fact. Nonetheless, I also find his performance to be more consistent with simulated players who modified their version of Minecraft than with simulated players who did not or with comparable real-world Minecraft speedrunners. I do not make a definitive conclusion, in deference to the Minecraft speedrunning community.</p>
-</div></blockquote>
-<blockquote>
-<div><p>I also point out an apparent oversight in the speedrunning community which could allow for different styles of cheating that are tougher to detect than usual. I also outline how to detect them, of course.</p>
-</div></blockquote>
-<p>Currently, I consider this report to be mostly but not entirely finished. I have made no attempt at spell-checking it, and it probably needs a grammar pass. The math appears correct, but could use a double-check. Overall, though, I think it is in good enough shape to ask for feedback on it. A PDF version of it will be coming shortly, but in the meantime you can run the notebook yourself on Google Colab:</p>
-<p><a class="reference external" href="https://colab.research.google.com/github/hjhornbeck/bayes_speedrun_cheating/blob/main/did_dream_cheat.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+  <div class="section" id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="documents">
+<h2>Documents<a class="headerlink" href="#documents" title="Permalink to this headline">¶</a></h2>
+<p>At long last, the report is done! Editing and conversion took longer than I expected, but at this point any remaining errors should be trivial. The full HTML version of it is available here:</p>
+<p><a class="reference external" href="https://did-dream-cheat.github.io/bayes_speedrun_cheating/">https://did-dream-cheat.github.io/bayes_speedrun_cheating/</a></p>
+<p>If you prefer a PDF, I’ve manually built one over here:</p>
+<p><a class="reference external" href="https://github.com/did-dream-cheat/bayes_speedrun_cheating/blob/gh-pages/_build/latex/python.pdf">https://github.com/did-dream-cheat/bayes_speedrun_cheating/blob/gh-pages/_build/latex/python.pdf</a></p>
+<p>Any page with Python code can be launched as an interactive notebook, click on the little “rocket” icon at the top of the page and pick your favourite code host. Since any dependencies won’t be copied over, I’ve added extra cells that, when their code is uncommented, should retrieve those dependencies for you.</p>
+</div>
+<div class="section" id="actual-code">
+<h2>Actual Code<a class="headerlink" href="#actual-code" title="Permalink to this headline">¶</a></h2>
+<p>The main GitHub repository is over here:</p>
+<p><a class="reference external" href="https://github.com/hjhornbeck/bayes_speedrun_cheating/">https://github.com/hjhornbeck/bayes_speedrun_cheating/</a></p>
+<p>Any proposed changes or forks should be on that specific repository; the “did-dream-cheat” username and sole repository are reserved for mirroring the main repository as HTML and PDF documents.</p>
 <p><em>hjhornbeck</em></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
