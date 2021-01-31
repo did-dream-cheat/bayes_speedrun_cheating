@@ -2,6 +2,9 @@ title: "Did Dream Cheat? A Bayesian Analysis of a Bernoulli Process."
 author: "hjhornbeck"
 repository:
   url: https://github.com/hjhornbeck/bayes_speedrun_cheating/
+  branch : main
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
 html:
   use_repository_button: true
 parse:
