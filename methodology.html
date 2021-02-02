@@ -573,13 +573,13 @@
 \text{Beta}( \alpha_\text{prior} + \sum_{j=1}^c k_j, \beta_\text{prior} + \sum_{j=1}^c (n_j - k_j), p ) = \frac{\Gamma\left(\alpha_\text{prior} + (\sum_{j=1}^c k_j) + \beta_\text{prior} + (\sum_{j=1}^c (n_j - k_j))\right)}{\Gamma(\alpha_\text{prior} + \sum_{j=1}^c k_j)\Gamma(\beta_\text{prior} + \sum_{j=1}^c (n_j - k_j))} p^{\alpha_\text{prior} - 1 + \sum_{j=1}^c k_j} (1-p)^{\beta_\text{prior} - 1 + \sum_{j=1}^c (n_j - k_j)} 
 \]</div>
 <p>Equation <a class="reference internal" href="#equation-eqn-beta-binom-mess">(5)</a> is a bit ugly to look at. One way to clean it up is to use different notation. The <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Taxicab_norm_or_Manhattan_norm">Taxicab norm</a> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a11ae457-f617-498f-91c8-3829531d74a9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-a11ae457-f617-498f-91c8-3829531d74a9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e6a949a0-4cc7-4b8d-8471-172443f799f7">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e6a949a0-4cc7-4b8d-8471-172443f799f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \|\vec n\|_1 = \sum_{j=1}^c |n_j|
 \end{equation}\]</div>
 <p>Since no value in <span class="math notranslate nohighlight">\(\vec n\)</span> or <span class="math notranslate nohighlight">\(\vec k\)</span> is negative, taking the absolute value has no effect. Note as well that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20e59876-1247-46e8-80ab-50de8be374b5">
-<span class="eqno">(7)<a class="headerlink" href="#equation-20e59876-1247-46e8-80ab-50de8be374b5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-47fbe654-eb75-48e6-ab0f-1542683f7418">
+<span class="eqno">(7)<a class="headerlink" href="#equation-47fbe654-eb75-48e6-ab0f-1542683f7418" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sum_{j=1}^c (n_j - k_j) = \left(\sum_{j=1}^c n_j\right) - \left(\sum_{j=1}^c k_j\right) = \|\vec n\|_1 - \|\vec k\|_1,
 \end{equation}\]</div>
 <p>which, along with <span class="math notranslate nohighlight">\(\|\vec k\|_1 + \|\vec n\|_1 - \|\vec k\|_1 = \|\vec n\|_1\)</span>, allows us to rewrite Equation <a class="reference internal" href="#equation-eqn-beta-binom-mess">(5)</a> as</p>
@@ -618,14 +618,14 @@
 </div>
 </div>
 <p>It is actually a probability distribution with respect to <span class="math notranslate nohighlight">\(n\)</span>. We can fix that by normalizing it, and the best time to do so is after extending the updating rule. First, observe that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c49a9f6-526a-4514-8cda-74551930cc3b">
-<span class="eqno">(10)<a class="headerlink" href="#equation-9c49a9f6-526a-4514-8cda-74551930cc3b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c8652c6-c72d-493f-9138-9538a241db08">
+<span class="eqno">(10)<a class="headerlink" href="#equation-5c8652c6-c72d-493f-9138-9538a241db08" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \sum_{j=1}^c (n_j - 1) &amp;= \left(\sum_{j=1}^c n_j\right) - c = \|\vec n\|_1 - c \\
 (\|\vec n\|_1 - c) - (\|\vec k\|_1 - c) &amp;= \|\vec n\|_1 - \|\vec k\|_1,
 \end{align}\]</div>
 <p>and secondly, remember that multiplication is <a class="reference external" href="https://en.wikipedia.org/wiki/Commutative_property">commutative</a>. This allows us to rearrange terms and write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-500fc1b5-f956-4cf0-85e2-03bb17a60c29">
-<span class="eqno">(11)<a class="headerlink" href="#equation-500fc1b5-f956-4cf0-85e2-03bb17a60c29" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ba954a2-06f4-47d0-9d3a-aea71cf2ceca">
+<span class="eqno">(11)<a class="headerlink" href="#equation-2ba954a2-06f4-47d0-9d3a-aea71cf2ceca" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \text{posterior}_\text{Negative Binomial} &amp;= p^c \left( \left( \prod_{j=1}^c \text{Binom}(n_j - 1, k_j - 1, p) \right)  \text{Beta}(\alpha_\text{prior}, \beta_\text{prior}, p) \right) \\
 {} &amp;= p^c \text{Beta}( \alpha_\text{prior} + \|\vec k\|_1 - c, \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1, p ) \\
 {} &amp;= p^c \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - c - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
@@ -636,18 +636,18 @@
 {} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
 \]</div>
 <p>To normalize Equation <a class="reference internal" href="#equation-eqn-negbinom-unnormed">(12)</a> according to <span class="math notranslate nohighlight">\(p\)</span>, we only need to divide it by what it integrates to across <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2070658-702d-4d98-ad92-4ef499e7fa54">
-<span class="eqno">(13)<a class="headerlink" href="#equation-a2070658-702d-4d98-ad92-4ef499e7fa54" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-59ae3b19-4698-489e-8e9e-98ff119dca06">
+<span class="eqno">(13)<a class="headerlink" href="#equation-59ae3b19-4698-489e-8e9e-98ff119dca06" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_{p=0}^1 \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - c)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1 - c)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)}p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
 \end{equation}\]</div>
 <p>Note that all the Gamma functions are constants, unaffected by any change in <span class="math notranslate nohighlight">\(p\)</span>. As <span class="math notranslate nohighlight">\(\int_x c \cdot g(x) = c \int_x g(x)\)</span>, we can pull them out of the integral. Since all the Gamma functions are identical across the numerator and denominator, they cancel out and we are left to evaluate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-770c99d8-7a81-4633-a046-e5417cbc2afe">
-<span class="eqno">(14)<a class="headerlink" href="#equation-770c99d8-7a81-4633-a046-e5417cbc2afe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad9b4332-2ba9-417f-9825-550be713028d">
+<span class="eqno">(14)<a class="headerlink" href="#equation-ad9b4332-2ba9-417f-9825-550be713028d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_{p=0}^1 p^{\alpha_\text{prior} + \|\vec k\|_1 - 1}(1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1}
 \end{equation}\]</div>
 <p>While this may seem daunting, remember that the Beta distribution integrates to 1 across <span class="math notranslate nohighlight">\(p\)</span>. Thus we can rearrange Equation <a class="reference internal" href="#equation-eqn-beta-integral">(9)</a> to find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fb7a4d6-f3db-4f91-99b9-542d61eed1e9">
-<span class="eqno">(15)<a class="headerlink" href="#equation-7fb7a4d6-f3db-4f91-99b9-542d61eed1e9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7fc8f20f-934c-41df-b29f-90f15fd80209">
+<span class="eqno">(15)<a class="headerlink" href="#equation-7fc8f20f-934c-41df-b29f-90f15fd80209" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \int_{p=0}^1 \text{Beta}(\alpha, \beta, p) &amp;= 1 \\
 \int_{p=0}^1 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} p^{\alpha-1}(1-p)^{\beta-1} &amp;= 1
 \end{align}\]</div>
@@ -655,8 +655,8 @@
 <span class="eqno">(16)<a class="headerlink" href="#equation-eqn-beta-trick" title="Permalink to this equation">¶</a></span>\[
 \int_{p=0}^1 p^{\alpha-1}(1-p)^{\beta-1} = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)} \]</div>
 <p>Equation <a class="reference internal" href="#equation-eqn-beta-trick">(16)</a> will be incredibly handy in future, but for now it allows us to finish normalizing Equation <a class="reference internal" href="#equation-eqn-negbinom-unnormed">(12)</a>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5c2461b-c7ee-4a11-86d2-e6f545eedbe6">
-<span class="eqno">(17)<a class="headerlink" href="#equation-b5c2461b-c7ee-4a11-86d2-e6f545eedbe6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9986c8a4-0b8a-4ae1-9ca4-8fc45f49d300">
+<span class="eqno">(17)<a class="headerlink" href="#equation-9986c8a4-0b8a-4ae1-9ca4-8fc45f49d300" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \alpha - 1 &amp;= \alpha_\text{prior} + \|\vec k\|_1 - 1 \\
 \alpha &amp;= \alpha_\text{prior} + \|\vec k\|_1 \\
 \beta &amp;= \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 \\
@@ -747,8 +747,8 @@
 <div><p>This study shows that when participants are given simple instructions about how to manipulate the toss of a coin and only a few minutes to practise this technique, more than half can significantly manipulate the outcome. With devoted training, more participants would probably be able to achieve this figure, and the magnitude of the manipulation would probably be increased.<a class="bibtex reference internal" href="zzz_bibliography.html#clarke306" id="id1">[CW09]</a></p>
 </div></blockquote>
 <p>If it is so easy to bias a coin toss, how did it get the reputation of being unbiased? Perhaps a coin toss is “fair enough,” in that the amount of bias you can generate isn’t enough to significantly change the outcome. If we take the average bias of coin tosses in this study as our threshold, then “fair enough” constitutes no more than an <span class="math notranslate nohighlight">\(\frac{569}{500}\)</span> improvement in the odds over perfect fairness, or in this case a success rate of 56.9%. We could express that in mathematics as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a441c064-6066-4c39-a995-1d92a1c3b8ad">
-<span class="eqno">(19)<a class="headerlink" href="#equation-a441c064-6066-4c39-a995-1d92a1c3b8ad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8544a16b-42e2-4514-96eb-4779e1eb81ce">
+<span class="eqno">(19)<a class="headerlink" href="#equation-8544a16b-42e2-4514-96eb-4779e1eb81ce" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_{p=0.431}^{0.569} \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p)
 \end{equation}\]</div>
 <p>This definition also has problems, though. Suppose I decided to modify my copy of Minecraft so that Blaze rods dropped 53% of the time. In the short run this is quite undetectable, but watch what happens when I target seven Blaze rods across 300 sessions.</p>
@@ -855,24 +855,24 @@ H_\text{fair}( p ~|~ \|\vec n\|_1 ) = \text{Beta}( \alpha_\text{prior} + r_\text
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> is the rate we expect during fair play. For instace, <span class="math notranslate nohighlight">\(r_\text{blaze} = \frac 1 2\)</span> and <span class="math notranslate nohighlight">\(r_\text{pearl} = \frac{20}{423}\)</span>.</p>
 <p>If you do not agree with my definition of “fair play” according to Equation <a class="reference internal" href="#equation-eqn-h-fair">(20)</a>, I’d encourage you to think up your own and express it in a mathematically precise way. In the meantime, I’ll use my definition to create a likelihood from the posterior. To do that, I multiply <span class="math notranslate nohighlight">\(H_\text{fair}(\|\vec n\|_1)\)</span> by the Beta posterior and integrate the combination.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca2b7b18-cc44-4783-9773-6b109c85ea18">
-<span class="eqno">(21)<a class="headerlink" href="#equation-ca2b7b18-cc44-4783-9773-6b109c85ea18" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0aa3bfe-2006-4afc-8224-d09fac82b8af">
+<span class="eqno">(21)<a class="headerlink" href="#equation-c0aa3bfe-2006-4afc-8224-d09fac82b8af" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( \vec n, p ) = \int_{p=0}^1 \text{Beta}( \alpha_\text{prior} + \|\vec k\|_1 , \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1, p ) \cdot \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p )
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-a4faa4cf-246e-41b8-a050-2e453469de5f">
-<span class="eqno">(22)<a class="headerlink" href="#equation-a4faa4cf-246e-41b8-a050-2e453469de5f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c9316dc6-9212-477b-b654-95c9fb4d233f">
+<span class="eqno">(22)<a class="headerlink" href="#equation-c9316dc6-9212-477b-b654-95c9fb4d233f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {} = \int_{p=0}^1 \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)} p^{\alpha_\text{prior} + \|\vec k\|_1 - 1} (1-p)^{\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1 - 1} \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)}{\Gamma(\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1)\Gamma(\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1)} p^{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1} (1-p)^{\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1 - 1} 
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-04ec8757-9cc2-4882-bf28-b16fc6599212">
-<span class="eqno">(23)<a class="headerlink" href="#equation-04ec8757-9cc2-4882-bf28-b16fc6599212" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2cf4f6d0-7159-4598-b13e-736e84fffa30">
+<span class="eqno">(23)<a class="headerlink" href="#equation-2cf4f6d0-7159-4598-b13e-736e84fffa30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {} = \frac{\Gamma(\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1)^2}{\Gamma(\alpha_\text{prior} + \|\vec k\|_1)\Gamma(\beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1)\Gamma(\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1)\Gamma(\beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1)} \int_{p=0}^1  p^{2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 2} (1-p)^{2 \beta_\text{prior} + \|\vec n\|_1 - \|\vec k\|_1  + (1-r_\text{fair})\|\vec n\|_1 - 2}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-24ae2261-0ce1-4b2d-80f1-a0c09cd9107a">
-<span class="eqno">(24)<a class="headerlink" href="#equation-24ae2261-0ce1-4b2d-80f1-a0c09cd9107a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f7778c4-99ea-4c3d-a804-ded43604878c">
+<span class="eqno">(24)<a class="headerlink" href="#equation-4f7778c4-99ea-4c3d-a804-ded43604878c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \|\vec n\|_1 + (1-r_\text{fair})\|\vec n\|_1 = (2 -r_\text{fair})\|\vec n\|_1
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-345938a6-27f1-48d6-95d1-8007e158fb1c">
-<span class="eqno">(25)<a class="headerlink" href="#equation-345938a6-27f1-48d6-95d1-8007e158fb1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54328c34-8de7-4666-a85c-901e046c9bb1">
+<span class="eqno">(25)<a class="headerlink" href="#equation-54328c34-8de7-4666-a85c-901e046c9bb1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_{p=0}^1  p^{2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 2} (1-p)^{2 \beta_\text{prior} + - \|\vec k\|_1  + (2-r_\text{fair})\|\vec n\|_1 - 2} = \frac{\Gamma(2 \alpha_\text{prior} + \|\vec k\|_1 + r_\text{fair}\|\vec n\|_1 - 1)\Gamma(2 \beta_\text{prior} - \|\vec k\|_1  + (2-r_\text{fair})\|\vec n\|_1 - 1)}{\Gamma(2 \alpha_\text{prior} + 2 \beta_\text{prior} + 2\|\vec n\|_1 - 2)}
 \end{equation}\]</div>
 <div class="math notranslate nohighlight" id="equation-eqn-posterior-h-fair">
@@ -1001,8 +1001,8 @@ H_\text{fair}( p ~|~ \|\vec n\|_1 ) = \text{Beta}( \alpha_\text{prior} + r_\text
 <span id="sec-defining-cheating"></span><h2>Defining Cheating<a class="headerlink" href="#defining-cheating" title="Permalink to this headline">¶</a></h2>
 <p>We’re still dealing with raw likelihoods, though. As mentioned in <a class="reference internal" href="critique_of_reports.html#sec-missing-context"><span class="std std-ref">Missing Context</span></a>, we need a reference point. The usual solution is to calculate a Bayes factor.<a class="bibtex reference internal" href="zzz_bibliography.html#doi-10-1080-01621459-1995-10476572" id="id2">[KR95]</a>
 You’ve likely seen Bayes’ Theorem,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-389247da-1d90-45ce-b76d-40041673b943">
-<span class="eqno">(27)<a class="headerlink" href="#equation-389247da-1d90-45ce-b76d-40041673b943" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0937bd42-da89-44f1-8144-04bcdf02fc4d">
+<span class="eqno">(27)<a class="headerlink" href="#equation-0937bd42-da89-44f1-8144-04bcdf02fc4d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p( H_1 | E ) = \frac{p( E | H_1 ) p( H_1 )}{p(E)}
 \end{equation}\]</div>
 <p>The likelihood function <span class="math notranslate nohighlight">\(p( E | H_1 )\)</span> and prior <span class="math notranslate nohighlight">\(p( H_1 )\)</span> should be familiar. The normalization factor <span class="math notranslate nohighlight">\(p( E )\)</span> is the probability of observing the evidence over all possible hypotheses, and is the canonical reference point. “All possible” is not the same as “all,” so the most common way to evaluate it is to declare a handful of hypotheses as the only ones that are possible, evaluate their likelihoods, then calculate <span class="math notranslate nohighlight">\(p(E) = p( E | H_1 )p(H_1) + p( E | H_2 )p(H_2) + \dots + p( E | H_j )p( H_j )\)</span>. Defining all those hypotheses can be difficult, and opens us up to charges of cooking the books.</p>
@@ -1014,8 +1014,8 @@ p( H_1 | E ) = \frac{p( E | H_1 ) p( H_1 )}{p(E)}
 <p>Not only is <span class="math notranslate nohighlight">\(p(E)\)</span> eliminated, constants across the numerator and denominator cancel out. This “Bayes factor” has the same interpretation as betting odds, with numbers greater than 1 indicating <span class="math notranslate nohighlight">\(H_1\)</span> is favoured and vice-versa. It has none of the flaws of p-values. For instance, since it obeys all the properties of a likelihood you can combine multiple Bayes factors together by multiplying them, just as you do with probabilities.</p>
 <p>In this context, the only worthwhile second hypothesis is “did Dream cheat?” Unfortunately, while there’s only one <span class="math notranslate nohighlight">\(r_\text{fair}\)</span> there are many ways to cheat. Ideally we’d consult with experts about Minecraft speedrunning and develop a mathematically-precise hypothesis about what cheating looks like. Since I do not have those connections, I’ll invoke a backup strat.</p>
 <p>If we accept my definition of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>, we can define <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> as the inverse of that definition; where <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> asserts fair play is likely, <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span> asserts it is unlikely, and vice-versa. The easiest way to accomplish that is to subtract the likelihood output by <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> from some other value. This value must be high enough to prevent the result from ever being negative, and not so high that it waters down the hypothesis to look more like the Bayes/Laplace prior. The obvious choice is to use the maximal likelihood of <span class="math notranslate nohighlight">\(H_\text{fair}\)</span> as that value, which is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b11d37b8-e530-4aeb-b49e-0cf4057dbfa9">
-<span class="eqno">(29)<a class="headerlink" href="#equation-b11d37b8-e530-4aeb-b49e-0cf4057dbfa9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-29e7ab53-e1c0-41b5-b2da-82657709d2c0">
+<span class="eqno">(29)<a class="headerlink" href="#equation-29e7ab53-e1c0-41b5-b2da-82657709d2c0" title="Permalink to this equation">¶</a></span>\[\begin{align}
 M_\text{fair} &amp;= \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, m_\text{fair}) \\
 m_\text{fair} &amp;= \frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1}{\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - 2}
 \end{align}\]</div>
@@ -1026,20 +1026,20 @@ m_\text{fair} &amp;= \frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\alpha_\text{
 <p>The scare quotes around “non-informative” are because there’s a strong argument to be made all priors leak information into the posterior, as what we consider “non-informative” according to one parametrization may not be the same with another.<a class="bibtex reference internal" href="zzz_bibliography.html#syversveen1998noninformative" id="id3">[Syv98]</a> It’s better to think of non-informative priors as weakly informative in most circumstances, and watch carefully for the exceptions.</p>
 </div>
 <p>I propose <span class="math notranslate nohighlight">\(\frac 1 2 \|\vec n\|_1^{-1}\)</span> is a good choice. Consider an ideal Bernoulli process representing evidence towards some hypothesis. As we know nothing about this process, “non-informative” priors make more sense than a subjective ones. I consider the best-justified “non-informative” prior to be <a class="reference external" href="https://en.wikipedia.org/wiki/Jeffreys_prior">Jeffreys’ prior</a>, which in this case is <span class="math notranslate nohighlight">\(\text{Beta}(\frac 1 2, \frac 1 2)\)</span>. If all <span class="math notranslate nohighlight">\(\|\vec n\|_1\)</span> atoms of evidence pulled from this process goes against the hypothesis, the mean value for the probability of truth <span class="math notranslate nohighlight">\(p\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69ea509f-9412-4569-a31e-030a157e4e82">
-<span class="eqno">(30)<a class="headerlink" href="#equation-69ea509f-9412-4569-a31e-030a157e4e82" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0d473ff-cba6-4999-8f79-5b051c48da2b">
+<span class="eqno">(30)<a class="headerlink" href="#equation-b0d473ff-cba6-4999-8f79-5b051c48da2b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{ \frac 1 2 }{ \frac 1 2 + \|\vec n\|_1} \approx \frac 1 2 \frac 1 {\|\vec n\|_1}
 \end{equation}\]</div>
 <p>Naturally, there’s room for disagreement. If you think the Bayes/Laplace prior is less informative, then <span class="math notranslate nohighlight">\(\|\vec n\|_1^{-1}\)</span> is a better offset. I can keep the constant scalar separate, so if you prefer the Bayes/Laplace you can substitute 1 in for the Jeffreys <span class="math notranslate nohighlight">\(\frac 1 2\)</span>, or even eliminate the offset entirely by setting the constant to zero.</p>
 <p>Third and finally, <span class="math notranslate nohighlight">\(M_\text{fair} - H_\text{fair} + \frac 1 2 \|\vec n\|_1^{-1}\)</span> is not normalized when integrated by <span class="math notranslate nohighlight">\(p\)</span>, a requirement if we’re to compare it against <span class="math notranslate nohighlight">\(H_\text{fair}\)</span>. This is simple to fix, as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b506c0c-bb96-4b42-880c-1dacb1e91435">
-<span class="eqno">(31)<a class="headerlink" href="#equation-7b506c0c-bb96-4b42-880c-1dacb1e91435" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-562db7c2-fb8f-4746-8e72-e0db7cca975a">
+<span class="eqno">(31)<a class="headerlink" href="#equation-562db7c2-fb8f-4746-8e72-e0db7cca975a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \int \left( g(x) + h(x) \right) &amp;= \left( \int g(x) \right) + \left( \int h(x) \right) \\
 \int_{p=0}^1 t &amp;= \left. t\cdot p \right|_{p=0}^1 = t\cdot(1) - t\cdot(0) = t
 \end{align}\]</div>
 <p>so therefore</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2977576c-06ed-472c-99d6-92e4242b4a97">
-<span class="eqno">(32)<a class="headerlink" href="#equation-2977576c-06ed-472c-99d6-92e4242b4a97" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3979b48-34ff-4b08-a709-d55a7655941e">
+<span class="eqno">(32)<a class="headerlink" href="#equation-c3979b48-34ff-4b08-a709-d55a7655941e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \int_{p=0}^1 M_\text{fair} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p ) + \frac 1 {2 \|\vec n\|_1} &amp;= M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1
 \end{align}\]</div>
 <p>and we can finally write out <span class="math notranslate nohighlight">\(H_\text{cheat}\)</span>.</p>
@@ -1047,8 +1047,8 @@ m_\text{fair} &amp;= \frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\alpha_\text{
 <span class="eqno">(33)<a class="headerlink" href="#equation-eqn-h-cheat" title="Permalink to this equation">¶</a></span>\[
 H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) = \frac{ M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p) }{M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1},
 \]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-cd7bbfe8-8d6b-4114-ac96-a4ad38abf9ec">
-<span class="eqno">(34)<a class="headerlink" href="#equation-cd7bbfe8-8d6b-4114-ac96-a4ad38abf9ec" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb7ac0ce-6045-4eba-b487-6593cca06854">
+<span class="eqno">(34)<a class="headerlink" href="#equation-fb7ac0ce-6045-4eba-b487-6593cca06854" title="Permalink to this equation">¶</a></span>\[\begin{align}
 M_\text{fair} &amp;= \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, m_\text{fair}) \\
 m_\text{fair} &amp;= \frac{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1}{\alpha_\text{prior} + \beta_\text{prior} + \|\vec n\|_1 - 2}
 \end{align}\]</div>
@@ -1108,8 +1108,8 @@ m_\text{fair} &amp;= \frac{\alpha_\text{prior} + r_\text{fair}\|\vec n\|_1 - 1}{
 <div class="section" id="putting-it-all-together">
 <span id="sec-putting-together"></span><h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
 <p>We finally have enough math in place to calculate a Bayes factor.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-679d2941-dac8-456d-9cfb-158b224a3a88">
-<span class="eqno">(35)<a class="headerlink" href="#equation-679d2941-dac8-456d-9cfb-158b224a3a88" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-01bff1c9-30d1-4f21-b6ae-f519ba481cc4">
+<span class="eqno">(35)<a class="headerlink" href="#equation-01bff1c9-30d1-4f21-b6ae-f519ba481cc4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \text{BF} &amp;= \frac{ \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) }{ \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) } \\
 \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{cheat}( p ~|~ \|\vec n\|_1, r_\text{fair} ) &amp;= \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) \frac{ M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \text{Beta}( \alpha_\text{prior} + r_\text{fair}\|\vec n\|_1, \beta_\text{prior} + (1-r_\text{fair})\|\vec n\|_1, p) }{M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1} \\
 {} &amp;= \frac 1 {M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - 1} \left( M_\text{fair} + \frac 1 {2 \|\vec n\|_1} - \int_{p=0}^1 \text{Beta}(\alpha_\text{posterior}, \beta_\text{posterior}, p ) H_\text{fair}( p ~|~ \|\vec n\|_1 ) \right)
