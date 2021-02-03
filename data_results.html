@@ -611,6 +611,9 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bartering</span>  <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/bartering.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pearl_players</span><span class="p">}</span>
     
+<span class="c1">### See the above comment about adding data, and use this line in place of the last</span>
+<span class="c1"># bartering[&#39;NAME&#39;] = pd.DataFrame( {&#39;n&#39;:vec_n, &#39;k&#39;:vec_k} )</span>
+    
 <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 </pre></div>
 </div>
