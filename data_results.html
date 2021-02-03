@@ -272,8 +272,152 @@
 <p>We will begin with the Blaze rod data. The MST report <a class="reference external" href="https://docs.google.com/spreadsheets/d/1P58S94yKB3Bm4A4_VotWyeelk_PvaTE1nDZx9DalEyk/view">gathered data</a> for five distinct random-seed any-percent Minecraft 1.16 speedrunners: Benex, Dream, Illumina, Sizzler, and Vadikus007.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell to install all dependencies locally</span>
-<span class="o">!</span>pip -q install --user mpmath myst_nb numpy pandas matplotlib scipy
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell to install all dependencies. Apologies for the spam.</span>
+
+<span class="c1"># If you&#39;re running this on your own computer, I recommend altering &quot;install mpmath&quot; </span>
+<span class="c1">#  to read &quot;install --user mpmath&quot;, that way you don&#39;t need administrator access.</span>
+<span class="c1"># You can get rid of the spam by changing &quot;pip install&quot; to &quot;pip -q install&quot;, but on Colab</span>
+<span class="c1">#  you could miss a message that you need to restart your runtime. If you don&#39;t restart,</span>
+<span class="c1">#  the code won&#39;t work, hence why the default is to spam.</span>
+<span class="c1"># A few error messages are fine, I usually get one about mismatched versions and the code</span>
+<span class="c1">#  still runs. </span>
+
+<span class="o">!</span>pip install mpmath myst_nb numpy pandas matplotlib scipy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath in /usr/lib/python3/dist-packages (1.1.0)
+Requirement already satisfied: myst_nb in /home/hjhornbeck/.local/lib/python3.8/site-packages (0.10.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /usr/lib/python3/dist-packages (1.18.4)
+Requirement already satisfied: pandas in /usr/lib/python3/dist-packages (1.0.5)
+Requirement already satisfied: matplotlib in /usr/lib/python3/dist-packages (3.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy in /usr/lib/python3/dist-packages (1.5.2)
+Requirement already satisfied: ipywidgets&lt;8,&gt;=7.0.0 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (7.6.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: myst-parser~=0.12.9 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (0.12.10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: importlib-metadata in /usr/lib/python3/dist-packages (from myst_nb) (1.6.0)
+Requirement already satisfied: jupyter-sphinx==0.3.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (0.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (from myst_nb) (5.3.1)
+Requirement already satisfied: ipython in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (7.19.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sphinx-togglebutton~=0.2.2 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (0.2.3)
+Requirement already satisfied: nbformat~=5.0 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (5.0.8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-cache~=0.4.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (0.4.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sphinx&lt;4,&gt;=2 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (3.4.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: docutils&gt;=0.15 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (0.16)
+Requirement already satisfied: nbconvert~=5.6 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst_nb) (5.6.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: widgetsnbextension~=3.5.0 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (3.5.1)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (5.0.5)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (5.4.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0; python_version &gt;= &quot;3.6&quot; in /home/hjhornbeck/.local/lib/python3.8/site-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (1.0.0)
+Requirement already satisfied: markdown-it-py~=0.5.4 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from myst-parser~=0.12.9-&gt;myst_nb) (0.5.8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pexpect&gt;4.3; sys_platform != &quot;win32&quot; in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (4.6.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (49.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pygments in /home/hjhornbeck/.local/lib/python3.8/site-packages (from ipython-&gt;myst_nb) (2.7.3)
+Requirement already satisfied: jedi&gt;=0.10 in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (0.17.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (3.0.6)
+Requirement already satisfied: pickleshare in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (0.7.5)
+Requirement already satisfied: backcall in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (0.2.0)
+Requirement already satisfied: decorator in /usr/lib/python3/dist-packages (from ipython-&gt;myst_nb) (4.4.2)
+Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from sphinx-togglebutton~=0.2.2-&gt;myst_nb) (0.34.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/lib/python3/dist-packages (from nbformat~=5.0-&gt;myst_nb) (3.2.0)
+Requirement already satisfied: ipython-genutils in /home/hjhornbeck/.local/lib/python3.8/site-packages (from nbformat~=5.0-&gt;myst_nb) (0.2.0)
+Requirement already satisfied: jupyter-core in /usr/lib/python3/dist-packages (from nbformat~=5.0-&gt;myst_nb) (4.6.3)
+Requirement already satisfied: sqlalchemy~=1.3.12 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from jupyter-cache~=0.4.1-&gt;myst_nb) (1.3.22)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nbclient&lt;0.6,&gt;=0.2 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from jupyter-cache~=0.4.1-&gt;myst_nb) (0.5.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nbdime in /home/hjhornbeck/.local/lib/python3.8/site-packages (from jupyter-cache~=0.4.1-&gt;myst_nb) (2.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: attrs in /usr/lib/python3/dist-packages (from jupyter-cache~=0.4.1-&gt;myst_nb) (19.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: snowballstemmer&gt;=1.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (2.0.0)
+Requirement already satisfied: Jinja2&gt;=2.3 in /usr/lib/python3/dist-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (2.11.2)
+Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (0.7.12)
+Requirement already satisfied: sphinxcontrib-jsmath in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: packaging in /usr/lib/python3/dist-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (20.4)
+Requirement already satisfied: sphinxcontrib-serializinghtml in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.1.4)
+Requirement already satisfied: sphinxcontrib-devhelp in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.0.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: babel&gt;=1.3 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (2.9.0)
+Requirement already satisfied: requests&gt;=2.5.0 in /usr/lib/python3/dist-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (2.23.0)
+Requirement already satisfied: imagesize in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.2.0)
+Requirement already satisfied: sphinxcontrib-applehelp in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.0.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sphinxcontrib-qthelp in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.0.3)
+Requirement already satisfied: sphinxcontrib-htmlhelp in /home/hjhornbeck/.local/lib/python3.8/site-packages (from sphinx&lt;4,&gt;=2-&gt;myst_nb) (1.0.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (0.8.4)
+Requirement already satisfied: testpath in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (0.4.4)
+Requirement already satisfied: defusedxml in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (0.6.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: bleach in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (3.2.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (0.3)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/lib/python3/dist-packages (from nbconvert~=5.6-&gt;myst_nb) (1.4.2)
+Requirement already satisfied: notebook&gt;=4.4.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (6.1.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-client in /usr/lib/python3/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (6.1.6)
+Requirement already satisfied: tornado&gt;=4.2 in /usr/lib/python3/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (6.0.4)
+Requirement already satisfied: async-generator in /home/hjhornbeck/.local/lib/python3.8/site-packages (from nbclient&lt;0.6,&gt;=0.2-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (1.10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nest-asyncio in /home/hjhornbeck/.local/lib/python3.8/site-packages (from nbclient&lt;0.6,&gt;=0.2-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (1.4.3)
+Requirement already satisfied: colorama in /usr/lib/python3/dist-packages (from nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (0.4.3)
+Requirement already satisfied: GitPython!=2.1.4,!=2.1.5,!=2.1.6 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (3.1.12)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six in /usr/lib/python3/dist-packages (from nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (1.15.0)
+Requirement already satisfied: pytz&gt;=2015.7 in /usr/lib/python3/dist-packages (from babel&gt;=1.3-&gt;sphinx&lt;4,&gt;=2-&gt;myst_nb) (2020.1)
+Requirement already satisfied: argon2-cffi in /home/hjhornbeck/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (20.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: terminado&gt;=0.8.3 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (0.9.2)
+Requirement already satisfied: Send2Trash in /usr/lib/python3/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (1.5.0)
+Requirement already satisfied: prometheus-client in /usr/lib/python3/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (0.7.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyzmq&gt;=17 in /usr/lib/python3/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (19.0.2)
+Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from GitPython!=2.1.4,!=2.1.5,!=2.1.6-&gt;nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (4.0.5)
+Requirement already satisfied: cffi&gt;=1.0.0 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (1.14.4)
+Requirement already satisfied: ptyprocess; os_name != &quot;nt&quot; in /home/hjhornbeck/.local/lib/python3.8/site-packages (from terminado&gt;=0.8.3-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (0.7.0)
+Requirement already satisfied: smmap&lt;4,&gt;=3.0.1 in /home/hjhornbeck/.local/lib/python3.8/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;GitPython!=2.1.4,!=2.1.5,!=2.1.6-&gt;nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst_nb) (3.0.4)
+Requirement already satisfied: pycparser in /home/hjhornbeck/.local/lib/python3.8/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst_nb) (2.20)
 </pre></div>
 </div>
 </div>
@@ -313,7 +457,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing &quot;simple_bernoulli_bf.py&quot;? Uncomment this line to grab it from the repository</span>
-<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/simple_bernoulli_bf.py&quot;</span>
+<span class="c1"># !wget -c &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/simple_bernoulli_bf.py&quot;</span>
 
 <span class="kn">from</span> <span class="nn">simple_bernoulli_bf</span> <span class="kn">import</span> <span class="n">prior</span><span class="p">,</span> <span class="n">posterior_H_fair</span><span class="p">,</span> <span class="n">BF_H_fair_H_cheat</span>
 </pre></div>
@@ -323,6 +467,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing the data files? Uncommenting and running this cell might retrieve them</span>
+
 <span class="c1"># !mkdir data</span>
 <span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.benex.tsv&quot;</span>
 <span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/blaze.dream.tsv&quot;</span>
@@ -335,16 +480,15 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>  <span class="c1"># makes colouring some of the following easier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">]</span>  <span class="c1"># makes colouring some of the following easier</span>
+<span class="n">colours</span> <span class="o">=</span> <span class="n">colours</span> <span class="o">+</span> <span class="n">colours</span>                    <span class="c1"># double-up to allow for extra data</span>
 
 <span class="n">blaze_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
-<span class="n">pearl_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream_before&#39;</span><span class="p">,</span><span class="s1">&#39;dream_after&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
-
 
 <span class="n">blaze_rods</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/blaze.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">blaze_players</span><span class="p">}</span>
 
-<span class="c1">#### Want to add your own data? The easiest way is to gather your data, then move the following to</span>
-<span class="c1">####  the section you need, then edit and uncomment it:</span>
+
+<span class="c1"># Want to add your own data? The easiest way is to gather your data, then edit and uncomment this:</span>
 
 <span class="c1"># vec_n = [12, 11, 16, 10, 13, 11, 5, 4, 1, 14]</span>
 <span class="c1"># vec_k = [ 6,  7,  8,  7,  8,  8, 5, 3, 1,  8]</span>
@@ -457,13 +601,18 @@
     <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
     <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
 
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream&#39;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span>
 
     <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span> <span class="p">)</span>
     
     <span class="n">y_low</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
     <span class="n">y_hig</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> \
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="o">*</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
 
 <span class="c1"># build the fancy ticks</span>
 <span class="n">xtics</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span> <span class="n">max_count</span> <span class="p">)</span>
@@ -504,12 +653,17 @@
 <span class="n">dream_blaze_bf</span> <span class="o">=</span> <span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;The Bayes factor for Dream&#39;s Blaze rod rate, over all his rounds and with the scale 4 prior,&quot;</span> <span class="o">+</span> \
-       <span class="sa">f</span><span class="s2">&quot; is about </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_blaze_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2"> or 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_blaze_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+       <span class="sa">f</span><span class="s2">&quot; is about </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_blaze_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">dream_blaze_bf</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;, or 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_blaze_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;.&quot;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Bayes factor for Dream&#39;s Blaze rod rate, over all his rounds and with the scale 4 prior, is about 0.000101 or 1:9,930.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Bayes factor for Dream&#39;s Blaze rod rate, over all his rounds and with the scale 4 prior, is about 0.000101, or 1:9,930.
 </pre></div>
 </div>
 </div>
@@ -536,14 +690,19 @@
     <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
     <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">blaze_rods</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
     
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream&#39;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span>
+
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
-             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span> <span class="p">)</span>
     <span class="k">for</span> <span class="n">pr</span> <span class="ow">in</span> <span class="n">priors</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
-             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">alpha</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
 
     <span class="c1"># plot the mean</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="o">*</span><span class="n">alpha</span> <span class="p">)</span>
     
     <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream&#39;</span><span class="p">:</span>
         <span class="n">dream_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">)</span>
@@ -609,9 +768,33 @@
 <p>Scenario 1 has already been ruled out by the PE report, as it notes the additional data reduces the probability of Dream cheating (pg. 13).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bartering</span>  <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/bartering.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pearl_players</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># missing the data files? Uncommenting and running this cell might retrieve them</span>
+
+<span class="c1"># !mkdir data</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.benex.tsv&quot;</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.dream_before.tsv&quot;</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.dream_after.tsv&quot;</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.illumina.tsv&quot;</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.sizzler.tsv&quot;</span>
+<span class="c1"># !wget -cP data &quot;https://raw.githubusercontent.com/hjhornbeck/bayes_speedrun_cheating/main/data/bartering.vadikus007.tsv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">]</span>  <span class="c1"># makes colouring some of the following easier</span>
+<span class="n">colours</span> <span class="o">=</span> <span class="n">colours</span> <span class="o">+</span> <span class="n">colours</span>                    <span class="c1"># double-up to allow for extra data</span>
+
+<span class="n">pearl_players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benex&#39;</span><span class="p">,</span><span class="s1">&#39;dream_before&#39;</span><span class="p">,</span><span class="s1">&#39;dream_after&#39;</span><span class="p">,</span><span class="s1">&#39;illumina&#39;</span><span class="p">,</span><span class="s1">&#39;sizzler&#39;</span><span class="p">,</span><span class="s1">&#39;vadikus007&#39;</span><span class="p">]</span>
+
+<span class="n">bartering</span>  <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/bartering.</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">.tsv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pearl_players</span><span class="p">}</span>
     
-<span class="c1">### See the above comment about adding data, and use this line in place of the last</span>
+    
+<span class="c1"># Want to add your own data? The easiest way is to gather your data, then edit and uncomment this:</span>
+
+<span class="c1"># vec_n = [12, 11, 16, 10, 13, 11, 5, 4, 1, 14]</span>
+<span class="c1"># vec_k = [ 6,  7,  8,  7,  8,  8, 5, 3, 1,  8]</span>
 <span class="c1"># bartering[&#39;NAME&#39;] = pd.DataFrame( {&#39;n&#39;:vec_n, &#39;k&#39;:vec_k} )</span>
     
 <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -712,12 +895,18 @@
     <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
     <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
 
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream_after&#39;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span>
+
     <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span> <span class="p">)</span>
     
     <span class="n">y_low</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
     <span class="n">y_hig</span> <span class="o">=</span> <span class="p">[</span><span class="n">BF_H_fair_H_cheat</span><span class="p">(</span><span class="n">sum_k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sum_n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">priors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_low</span><span class="p">],</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">y_hig</span><span class="p">],</span> \
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">alpha</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
 
 <span class="c1"># build the fancy ticks</span>
 <span class="n">xtics</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span> <span class="n">max_count</span> <span class="p">)</span>
@@ -745,7 +934,7 @@
 </div>
 <div class="figure align-default" id="fig-data-pearl">
 <div class="cell_output docutils container">
-<img alt="_images/data_results_17_0.png" src="_images/data_results_17_0.png" />
+<img alt="_images/data_results_18_0.png" src="_images/data_results_18_0.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The behaviour of this Bayes Factor for Ender pearl barters, from both reports.</span><a class="headerlink" href="#fig-data-pearl" title="Permalink to this image">¶</a></p>
 </div>
@@ -758,7 +947,11 @@
 <span class="n">dream_pearl_bf</span> <span class="o">=</span> <span class="n">BF_H_fair_H_cheat</span><span class="p">(</span> <span class="n">sum_k</span><span class="p">,</span> <span class="n">sum_n</span><span class="p">,</span> <span class="n">r_fair</span><span class="p">,</span> <span class="o">*</span><span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;The Bayes factor for Dream&#39;s post-break Ender pearl barters, over all his rounds and with the scale 4 prior,&quot;</span> <span class="o">+</span> \
-       <span class="sa">f</span><span class="s2">&quot; is </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_pearl_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">, or about 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_pearl_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+       <span class="sa">f</span><span class="s2">&quot; is </span><span class="si">{</span><span class="n">mp</span><span class="o">.</span><span class="n">nstr</span><span class="p">(</span><span class="n">dream_pearl_bf</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="p">)</span>
+<span class="k">if</span> <span class="n">dream_pearl_bf</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;, or about 1:</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dream_pearl_bf</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;.&quot;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -787,11 +980,16 @@
     <span class="n">sum_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="p">)</span>
     <span class="n">sum_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">bartering</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="p">)</span>
     
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream_after&#39;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span>
+
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
-             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span> <span class="p">)</span>
     <span class="k">for</span> <span class="n">pr</span> <span class="ow">in</span> <span class="n">priors</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">),</span> \
-             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="o">*</span><span class="n">alpha</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
         <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;dream_after&#39;</span><span class="p">:</span>
             <span class="n">dream_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sum_n</span><span class="p">)</span> <span class="p">)</span>
 
@@ -816,7 +1014,7 @@
 </div>
 <div class="figure align-default" id="fig-data-pearl-pos">
 <div class="cell_output docutils container">
-<img alt="_images/data_results_21_0.png" src="_images/data_results_21_0.png" />
+<img alt="_images/data_results_22_0.png" src="_images/data_results_22_0.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The posterior distribution for the Ender pearl barters of several Minecraft 1.16 speedrunners, using data from both reports. Vertical lines represent the mean of the posterior for the scale 4 prior, and the effect of different priors is shown.</span><a class="headerlink" href="#fig-data-pearl-pos" title="Permalink to this image">¶</a></p>
 </div>
@@ -829,6 +1027,7 @@
 <span class="n">sum_k</span>            <span class="o">=</span> <span class="n">bartering</span><span class="p">[</span><span class="s1">&#39;dream_after&#39;</span><span class="p">][</span><span class="s1">&#39;k&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">a_prior</span><span class="p">,</span> <span class="n">b_prior</span> <span class="o">=</span> <span class="n">prior</span><span class="p">(</span><span class="n">r_fair</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">025</span><span class="p">,</span> <span class="o">.</span><span class="mi">16</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">84</span><span class="p">,</span> <span class="o">.</span><span class="mi">975</span><span class="p">]</span>
 <span class="n">intervals</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span> <span class="n">bounds</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_prior</span> <span class="o">+</span> <span class="n">sum_k</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_prior</span> <span class="o">+</span> <span class="n">sum_n</span> <span class="o">-</span> <span class="n">sum_k</span><span class="p">)</span> <span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_pearl_intervals_low&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span> <span class="s1">&#39;data_pearl_intervals_high&#39;</span><span class="p">,</span> <span class="n">intervals</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
