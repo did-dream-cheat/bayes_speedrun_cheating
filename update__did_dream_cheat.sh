@@ -21,3 +21,4 @@ git commit -m "Auto-commit of LaTeX version."
 git push --set-upstream origin gh-pages
 
 git checkout main    # restore ourselves to main
+git push             # as otherwise main keeps falling behind
